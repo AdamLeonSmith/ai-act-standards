@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Act Harmonised Standards Mapping</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #1a1a2e;
+            --secondary-dark: #16213e;
+            --accent-gold: #d4af37;
+            --accent-blue: #4a6fa5;
+            --accent-teal: #2c9a9e;
+            --text-light: #e8e8e8;
+            --text-muted: #b0b0b0;
+            --stage-10: #dc2626;
+            --stage-20: #ffff00;
+            --stage-40: #800080;
+            --stage-50: #0d9488;
+            --stage-60: #1e40af;
+            --card-bg: #ffffff;
+            --card-border: #e5e7eb;
+            --hover-bg: #f9fafb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            color: var(--primary-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: var(--primary-dark);
+            color: var(--text-light);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.05) 100%);
+            pointer-events: none;
+        }
+
+        .header h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+            position: relative;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            position: relative;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            animation: fadeIn 0.8s ease-out 0.4s both;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative;
+            cursor: help;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .legend-item:hover {
+            background: var(--hover-bg);
+        }
+
+        .legend-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .legend-tooltip {
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: var(--primary-dark);
+            color: var(--text-light);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .legend-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: var(--primary-dark);
+        }
+
+        .legend-item:hover .legend-tooltip {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .mapping-wrapper {
+            position: relative;
+            animation: fadeIn 0.8s ease-out 0.6s both;
+        }
+
+        .mapping-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            position: relative;
+        }
+
+        .column-header {
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .article-card, .standard-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: visible;
+        }
+
+        .article-card {
+            cursor: pointer;
+        }
+
+        .article-card::after {
+            content: '\f35d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+        }
+
+        .article-card:hover::after {
+            opacity: 1;
+        }
+
+        .article-card::before, .standard-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-gold);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .article-card:hover, .standard-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-gold);
+            z-index: 10;
+        }
+
+        .article-card:hover::before, .standard-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .article-card.highlighted, .standard-card.highlighted {
+            border-color: var(--accent-blue);
+            box-shadow: 0 8px 20px rgba(74, 111, 165, 0.2);
+        }
+
+        .standard-card.has-link {
+            cursor: pointer;
+        }
+
+        .standard-card.has-link::after {
+            content: '\f35d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: var(--accent-blue);
+        }
+
+        .standard-card.has-link:hover::after {
+            opacity: 1;
+        }
+
+        .article-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .article-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .article-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+        }
+
+        .standard-code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stage-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .standard-title {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .standard-scope {
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: var(--primary-dark);
+            color: var(--text-light);
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            white-space: normal;
+            width: max-content;
+            max-width: 400px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            line-height: 1.5;
+        }
+
+        .standard-scope::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 8px solid transparent;
+            border-top-color: var(--primary-dark);
+        }
+
+        .standard-card:hover .standard-scope {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .substack-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            margin-top: 0.5rem;
+            padding: 0.3rem 0.7rem;
+            background: rgba(74, 111, 165, 0.1);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .standard-card.has-link:hover .substack-badge {
+            background: rgba(74, 111, 165, 0.2);
+        }
+
+        #connection-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .connection-line {
+            stroke: var(--accent-gold);
+            stroke-width: 2;
+            fill: none;
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+
+        .connection-line.highlighted {
+            stroke: var(--accent-blue);
+            stroke-width: 3;
+            opacity: 1;
+        }
+        .caveats-box {
+            background: #fff3cd;
+            border-left: 4px solid #d97706;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease-out 0.5s both;
+        }
+
+        .caveats-box h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .caveats-box h3 i {
+            color: #d97706;
+        }
+
+        .caveats-box ul {
+            margin: 0;
+            padding-left: 1.5rem;
+            color: #78350f;
+        }
+
+        .caveats-box li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .caveats-box li:last-child {
+            margin-bottom: 0;
+        }
+        .changelog-section {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .changelog-section h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .changelog-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .changelog-table thead {
+            background: var(--primary-dark);
+            color: var(--text-light);
+        }
+
+        .changelog-table th {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .changelog-table tbody tr {
+            border-bottom: 1px solid var(--card-border);
+            transition: background 0.2s ease;
+        }
+
+        .changelog-table tbody tr:hover {
+            background: var(--hover-bg);
+        }
+
+        .changelog-table td {
+            padding: 0.75rem 1rem;
+            vertical-align: top;
+        }
+
+        .changelog-table .date-col {
+            width: 120px;
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
+        .changelog-table .standard-col {
+            width: 140px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+        }
+
+        .changelog-table .change-type {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .changelog-table .change-type.stage {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .changelog-table .change-type.scope {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .changelog-table .change-type.mapping {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .changelog-table .change-type.analysis {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        @media (max-width: 968px) {
+            .changelog-table {
+                font-size: 0.85rem;
+            }
+            
+            .changelog-table th,
+            .changelog-table td {
+                padding: 0.5rem;
+            }
+            
+            .changelog-table .date-col,
+            .changelog-table .standard-col {
+                width: auto;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .mapping-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            #connection-svg {
+                display: none;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .legend {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .standard-scope {
+                max-width: 280px;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--accent-gold);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>EU AI Act Harmonised Standards Mapping</h1>
+        <p>High-Level Summary of Intended Coverage by Standards</p>
+    </div>
+
+    <div class="container">
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-dot" style="background: var(--stage-10);"></div>
+                <span>Stage 10+</span>
+                <div class="legend-tooltip">Project approved and in drafting</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background: var(--stage-20);"></div>
+                <span>Stage 20+</span>
+                <div class="legend-tooltip">Working / Committee draft</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background: var(--stage-40);"></div>
+                <span>Stage 40+</span>
+                <div class="legend-tooltip">Enquiry / Draft International Standard stage</div>
+            </div>
+                        <div class="legend-item">
+                <div class="legend-dot" style="background: var(--stage-50);"></div>
+                <span>Stage 50+</span>
+                <div class="legend-tooltip">Approval stage</div>
+            </div>
+
+            <div class="legend-item">
+                <div class="legend-dot" style="background: var(--stage-60);"></div>
+                <span>Stage 60+</span>
+                <div class="legend-tooltip">Publication stage</div>
+            </div>
+        </div>
+
+        <div class="caveats-box">
+    <h3><i class="fa-solid fa-circle-info"></i> Important Caveats</h3>
+    <ul>
+        <li>This information is based on draft standards circulated for public enquiry, or information published by CEN-CENELEC</li>
+        <li>This mapping represents the <strong>intended coverage</strong> as standards are being developed</li>
+        <li>Standards are at different development stages - check stage indicators for maturity</li>
+        <li>Final harmonised standards may differ from current drafts, drafts are Enquiry stage are not approved by national bodies</li>
+        <li>Some standards will contain normative references, these will be added once those standards reach the Enquiry stage</li>
+        <li>Always consult official EU AI Act text and published harmonised standards for compliance</li>
+    </ul>
+</div>
+        <div class="mapping-wrapper">
+            <svg id="connection-svg"></svg>
+            <div class="mapping-container">
+                <div class="articles-column">
+                    <h2 class="column-header">Intended Presumption of Conformity (<a href="https://adamleonsmith.substack.com/p/understanding-the-different-types">unconfirmed</a>)</h2>
+                    <div id="articles"></div>
+                </div>
+
+                <div class="standards-column">
+                    <h2 class="column-header">Primary Project (Citation with Annex Z)</h2>
+                    <div id="standards"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="container">
+    <div class="changelog-section">
+        <h2>Changelog</h2>
+        <table class="changelog-table">
+            <thead>
+                <tr>
+                    <th class="date-col">Date</th>
+                    <th class="standard-col">Standard</th>
+                    <th>Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="date-col">2025-12-01</td>
+                    <td class="standard-col">All</td>
+                    <td>
+                        <span class="change-type mapping">Mapping</span>
+                        Initial publication of interactive standards mapping based on prEN 18286, Annex B, and CEN-CENELEC website project scopes.
+                    </td>
+                </tr>
+                <!-- Add new entries here as you make updates -->
+                <!-- Example entries: -->
+                <!--
+                <tr>
+                    <td class="date-col">2024-12-15</td>
+                    <td class="standard-col">prEN 18286</td>
+                    <td>
+                        <span class="change-type analysis">Analysis</span>
+                        Added Substack analysis link
+                    </td>
+                </tr>
+                <tr>
+                    <td class="date-col">2024-12-20</td>
+                    <td class="standard-col">prEN 18228</td>
+                    <td>
+                        <span class="change-type stage">Stage</span>
+                        Updated to Stage 40 (Committee draft)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="date-col">2025-01-10</td>
+                    <td class="standard-col">prEN 18229-1</td>
+                    <td>
+                        <span class="change-type scope">Scope</span>
+                        Updated scope description based on latest draft
+                    </td>
+                </tr>
+                -->
+            </tbody>
+        </table>
+    </div>
+</div>
+    <div class="footer">
+        <p>Interactive mapping created by <a href="https://adamleonsmith.substack.com/" target="_blank">Adam Leon Smith</a></p>
+    </div>
+
+    <script>
+        // Configuration: Define which articles map to which standards
+        const mappings = [
+            { article: 'art9', standards: ['prEN18228'] },
+            { article: 'art10', standards: ['prEN18284', 'prEN18283'] },
+            { article: 'art12', standards: ['prEN18229-1'] },
+            { article: 'art13', standards: ['prEN18229-1'] },
+            { article: 'art14', standards: ['prEN18229-1'] },
+            { article: 'art15', standards: ['prEN18229-2', 'prEN18282'] },
+            { article: 'art17', standards: ['prEN18286'] },
+            { article: 'art72', standards: [] } // No mapping shown in original
+        ];
+
+        // AI Act articles configuration
+        const articles = [
+            {
+                id: 'art9',
+                title: 'Art 9 - Risk Management System',
+                icon: 'fa-triangle-exclamation',
+                color: '#dc2626',
+                aiActUrl: 'https://artificialintelligenceact.eu/article/9/'
+            },
+            {
+                id: 'art10',
+                title: 'Art 10 - Data and Data Governance',
+                icon: 'fa-database',
+                color: '#7c3aed',
+                aiActUrl: 'https://artificialintelligenceact.eu/article/10/'
+            },
+            {
+                id: 'art12',
+                title: 'Art 12 - Record-Keeping',
+                icon: 'fa-folder-open',
+                color: '#0891b2',
+                aiActUrl: 'https://artificialintelligenceact.eu/article/12/'
+            },
+            {
+                id: 'art13',
+                title: 'Art 13 - Transparency and Provision of Information to Deployers',
+                icon: 'fa-eye',
+                color: '#2563eb',
+                aiActUrl: 'https://artificialintelligenceact.eu/article/13/'
+            },
+            {
+                id: 'art14',
+                title: 'Art 14 - Human Oversight',
+                icon: 'fa-user-shield',
+                color: '#7c2d12',
+                aiActUrl: 'https://artificialintelligenceact.eu/article/14/'
+            },
+            {
+                id: 'art15',
+                title: 'Art 15 – Accuracy, Robustness and Cybersecurity',
+                icon: 'fa-shield-halved',
+                color: '#059669',
+                aiActUrl: 'https://artificialintelligenceact.eu/article/15/'
+            },
+            {
+                id: 'art17',
+                title: 'Art 17 – Quality Management System',
+                icon: 'fa-award',
+                color: '#d97706',
+                aiActUrl: 'https://artificialintelligenceact.eu/article/17/'
+            },
+            {
+                id: 'art72',
+                title: 'Art 72 - Post-Market Monitoring by Providers and Post-Market Monitoring Plan for High-Risk AI Systems',
+                icon: 'fa-chart-line',
+                color: '#4f46e5',
+                aiActUrl: 'https://artificialintelligenceact.eu/article/72/'
+            }
+        ];
+
+        // Harmonised standards configuration
+        const standards = [
+            {
+                id: 'prEN18228',
+                code: 'prEN 18228',
+                title: 'AI Risk Management',
+                stage: 20,
+                scope: 'This document specifies requirements on risk management for AI systems. This document also provides clear and actionable guidance on how risk can be addressed and mitigated throughout the entire lifecycle of the AI system. It applies to risk management for a broad range of products and services which use AI technology, including explicit considerations for vulnerable people. Risks covered include both risks to health and safety and risks to fundamental rights which can arise from AI systems, with impact for individuals, organisations, market and society. This document also defines methods that can be used to determine if a package of risk management measures associated with an AI system will be able to ensure that certain risks arising from that product or system are identified, monitored, and managed, leading to an acceptable level of risk. This document is intended for use by organizations and individuals providing, using, or being affected by products or services that use AI technology, no matter what their size, nature, or location is. The included requirements and guidance have however been specifically tailored to support organisations and individuals who operate inside of the European Union, as well as organisations and individuals outside of the Union who are active in the European Union market or who intend to enter that market. They have been tailored to support these organisations and individuals in meeting applicable regulatory requirements, with the flexibility to accommodate additional expectations from parties they may interact with',
+                substackUrl: '' // Add your Substack article URL here
+            },
+            {
+                id: 'prEN18284',
+                code: 'prEN 18284',
+                title: 'Quality and governance of datasets in AI',
+                stage: 10,
+                scope: 'This document provides guidance and requirements for the creation and management of datasets in the context of AI, including design choices, data collection and preparation. It defines metrics and methodology to assess dataset quality characteristics such as representativeness, relevance, completeness and correctness. This encompasses consideration of any data, including training data, validation data and test data, and to be used in conjunction with any AI technology.',
+                substackUrl: ''
+            },
+            {
+                id: 'prEN18283',
+                code: 'prEN 18283',
+                title: 'Concepts, measures and requirements for managing bias in AI systems',
+                stage: 10,  
+                scope: 'This document defines concepts, measures and requirements for assessment and treatment of bias in AI systems. This includes bias unwanted by the AI Provider and AI Deployer according to their specification of the AI system, in the context of the AI Act. This encompasses consideration of data bias including any data used to build or assess the AI system, but also system or model bias that can result from algorithmic factors, such as algorithm design choices.',
+                substackUrl: ''
+            },
+            {
+                id: 'prEN18229-1',
+                code: 'prEN 18229-1',
+                title: 'AI trustworthiness framework – Part 1: Logging, transparency and human oversight',
+                stage: 20,
+                scope: 'This document provides a framework for AI systems\' trustworthiness which contains terminology, concepts, high-level horizontal requirements, guidance and a method to contextualize those to specific stakeholders, domains or applications. The high-level horizontal requirements address foundational aspects and characteristics of trustworthiness of AI systems. This document is primarily intended for organizations placing on the market or putting into service AI systems. Part 1 covers AI Trustworthiness framework, logging, transparency and human oversight.',
+                substackUrl: ''
+            },
+            {
+                id: 'prEN18229-2',
+                code: 'prEN 18229-2',
+                title: 'AI trustworthiness framework – Part 2: Accuracy and robustness',
+                stage: 10,
+                scope: 'This document provides a framework for AI systems\' trustworthiness which contains terminology, concepts, high-level horizontal requirements, guidance and a method to contextualize those to specific stakeholders, domains or applications. The high-level horizontal requirements address foundational aspects and characteristics of trustworthiness of AI systems. This document is primarily intended for organizations placing on the market or putting into service AI systems. Part 2 covers Accuracy and robustness.',
+                substackUrl: ''
+            },
+            {
+                id: 'prEN18282',
+                code: 'prEN 18282',
+                title: 'Cybersecurity specifications for AI systems',
+                stage: 20,
+                scope: 'This document addresses organizational and technical solutions aimed at ensuring the cybersecurity of high-risk AI systems over the lifecycle, appropriate to the relevant circumstances and the risks. The technical solutions to address AI specific vulnerabilities include, where appropriate, measures to prevent, detect, respond to, resolve and control for attacks trying to manipulate the training dataset (data poisoning), or pre-trained components used in training (model poisoning), inputs designed to cause the model to make a mistake (adversarial examples or model evasion), confidentiality attacks or model flaws. This document provides objective criteria to enable decisions on whether a given technical or organizational solution adequately achieves a given vulnerability-related goal.',
+                substackUrl: ''
+            },
+            {
+                id: 'prEN18286',
+                code: 'prEN 18286',
+                title: 'Quality management system for EU AI Act regulatory purposes',
+                stage: 40,
+                scope: 'This document specifies the requirements and provides guidance for the definition, implementation, maintenance and improvement of a quality management system for organizations that provide AI systems. This document is intended to support the organization in meeting applicable regulatory requirements.',
+                substackUrl: 'https://adamleonsmith.substack.com/p/pren-18286'
+            }
+        ];
+
+        function getStageColor(stage) {
+            const colors = {
+                10: '#dc2626',
+                20: '#ffff00',
+                40: '#800080',
+                50: '#0d9488',
+                60: '#1e40af'
+            };
+            return colors[stage] || '#6b7280';
+        }
+
+        function renderArticles() {
+            const container = document.getElementById('articles');
+            articles.forEach((article, index) => {
+                const card = document.createElement('div');
+                card.className = 'article-card';
+                card.id = `article-${article.id}`;
+                card.dataset.articleId = article.id;
+                card.style.animationDelay = `${0.1 * index}s`;
+                card.innerHTML = `
+                    <div class="article-header">
+                        <div class="article-icon" style="background: ${article.color};">
+                            <i class="fa-solid ${article.icon}"></i>
+                        </div>
+                        <div class="article-title">${article.title}</div>
+                    </div>
+                `;
+                
+                // Add click handler to open AI Act Explorer
+                card.addEventListener('click', (e) => {
+                    // Don't navigate if we're just hovering for highlighting
+                    if (article.aiActUrl) {
+                        window.open(article.aiActUrl, '_blank');
+                    }
+                });
+                
+                // Add hover event for highlighting connections
+                card.addEventListener('mouseenter', () => highlightConnections(article.id, 'article'));
+                card.addEventListener('mouseleave', clearHighlights);
+                
+                container.appendChild(card);
+            });
+        }
+
+        function renderStandards() {
+            const container = document.getElementById('standards');
+            standards.forEach((standard, index) => {
+                const card = document.createElement('div');
+                card.className = 'standard-card';
+                card.id = `standard-${standard.id}`;
+                card.dataset.standardId = standard.id;
+                if (standard.substackUrl) {
+                    card.classList.add('has-link');
+                    card.onclick = () => window.open(standard.substackUrl, '_blank');
+                }
+                card.style.animationDelay = `${0.1 * index}s`;
+                
+                const substackBadge = standard.substackUrl 
+                    ? '<div class="substack-badge"><i class="fa-solid fa-newspaper"></i> Analysis available</div>'
+                    : '';
+                
+                card.innerHTML = `
+                    <div class="standard-code">
+                        <div class="stage-indicator" style="background: ${getStageColor(standard.stage)};"></div>
+                        ${standard.code}
+                    </div>
+                    <div class="standard-title">${standard.title}</div>
+                    ${substackBadge}
+                    <div class="standard-scope">${standard.scope}</div>
+                `;
+                
+                // Add hover event for highlighting connections
+                card.addEventListener('mouseenter', () => highlightConnections(standard.id, 'standard'));
+                card.addEventListener('mouseleave', clearHighlights);
+                
+                container.appendChild(card);
+            });
+        }
+
+        function drawConnections() {
+            const svg = document.getElementById('connection-svg');
+            const container = document.querySelector('.mapping-wrapper');
+            
+            // Set SVG size to match container
+            const updateSVGSize = () => {
+                const rect = container.getBoundingClientRect();
+                svg.setAttribute('width', rect.width);
+                svg.setAttribute('height', rect.height);
+            };
+            updateSVGSize();
+            window.addEventListener('resize', updateSVGSize);
+            
+            // Clear existing paths
+            svg.innerHTML = '';
+            
+            // Draw lines for each mapping
+            mappings.forEach(mapping => {
+                const articleEl = document.getElementById(`article-${mapping.article}`);
+                if (!articleEl) return;
+                
+                mapping.standards.forEach(standardId => {
+                    const standardEl = document.getElementById(`standard-${standardId}`);
+                    if (!standardEl) return;
+                    
+                    const articleRect = articleEl.getBoundingClientRect();
+                    const standardRect = standardEl.getBoundingClientRect();
+                    const containerRect = container.getBoundingClientRect();
+                    
+                    // Calculate connection points (right middle of article, left middle of standard)
+                    const x1 = articleRect.right - containerRect.left;
+                    const y1 = articleRect.top - containerRect.top + articleRect.height / 2;
+                    const x2 = standardRect.left - containerRect.left;
+                    const y2 = standardRect.top - containerRect.top + standardRect.height / 2;
+                    
+                    // Create curved path
+                    const midX = (x1 + x2) / 2;
+                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    const d = `M ${x1} ${y1} C ${midX} ${y1}, ${midX} ${y2}, ${x2} ${y2}`;
+                    path.setAttribute('d', d);
+                    path.setAttribute('class', 'connection-line');
+                    path.dataset.article = mapping.article;
+                    path.dataset.standard = standardId;
+                    
+                    svg.appendChild(path);
+                });
+            });
+        }
+
+        function highlightConnections(id, type) {
+            // Find all relevant connections
+            const lines = document.querySelectorAll('.connection-line');
+            lines.forEach(line => {
+                const isRelevant = type === 'article' 
+                    ? line.dataset.article === id
+                    : line.dataset.standard === id;
+                
+                if (isRelevant) {
+                    line.classList.add('highlighted');
+                    
+                    // Highlight connected cards
+                    if (type === 'article') {
+                        const standardCard = document.getElementById(`standard-${line.dataset.standard}`);
+                        if (standardCard) standardCard.classList.add('highlighted');
+                    } else {
+                        const articleCard = document.getElementById(`article-${line.dataset.article}`);
+                        if (articleCard) articleCard.classList.add('highlighted');
+                    }
+                }
+            });
+        }
+
+        function clearHighlights() {
+            document.querySelectorAll('.connection-line').forEach(line => {
+                line.classList.remove('highlighted');
+            });
+            document.querySelectorAll('.article-card, .standard-card').forEach(card => {
+                card.classList.remove('highlighted');
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderArticles();
+            renderStandards();
+            
+            // Draw connections after a short delay to ensure elements are rendered
+            setTimeout(() => {
+                drawConnections();
+            }, 100);
+            
+            // Redraw connections on window resize
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(drawConnections, 100);
+            });
+        });
+    </script>
+</body>
+</html>
