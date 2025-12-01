@@ -556,15 +556,10 @@
         }
 
         @media (max-width: 1200px) {
-            .mapping-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            #connection-svg {
-                display: none;
-            }
-
+.mapping-container {
+        grid-template-columns: 1fr 1fr;  /* Keep side-by-side */
+        gap: 1rem;  /* Smaller gap on mobile */
+    }
             .header h1 {
                 font-size: 2rem;
             }
