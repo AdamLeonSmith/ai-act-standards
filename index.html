@@ -604,6 +604,76 @@
         .footer a:hover {
             color: var(--accent-gold);
         }
+
+        .status-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease-out 0.5s both;
+        }
+
+        .status-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent-gold);
+            transition: all 0.3s ease;
+        }
+
+        .status-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .status-card.stage-10 {
+            border-left-color: var(--stage-10);
+        }
+
+        .status-card.stage-20 {
+            border-left-color: var(--stage-20);
+        }
+
+        .status-card.stage-40 {
+            border-left-color: var(--stage-40);
+        }
+
+        .status-card.stage-60 {
+            border-left-color: var(--stage-60);
+        }
+
+        .status-value {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .status-sublabel {
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            margin-top: 0.25rem;
+        }
+
+        @media (max-width: 968px) {
+            .status-dashboard {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .status-value {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -641,6 +711,46 @@
                 <div class="legend-tooltip">Publication stage</div>
             </div>
         </div>
+
+        <div class="status-dashboard">
+            <div class="status-card">
+                <div class="status-value" id="total-standards">7</div>
+                <div class="status-label">Total Standards</div>
+                <div class="status-sublabel">CEN-CENELEC JTC 21</div>
+            </div>
+            
+            <div class="status-card stage-10">
+                <div class="status-value" id="stage-10-count">2</div>
+                <div class="status-label">Stage 10+</div>
+                <div class="status-sublabel">Drafting</div>
+            </div>
+            
+            <div class="status-card stage-20">
+                <div class="status-value" id="stage-20-count">4</div>
+                <div class="status-label">Stage 20+</div>
+                <div class="status-sublabel">Working / Committee Draft</div>
+            </div>
+            
+            <div class="status-card stage-40">
+                <div class="status-value" id="stage-40-count">1</div>
+                <div class="status-label">Stage 40+</div>
+                <div class="status-sublabel">Enquiry / DIS Draft</div>
+            </div>
+            
+            <div class="status-card stage-60">
+                <div class="status-value" id="stage-60-count">0</div>
+                <div class="status-label">Stage 60+</div>
+                <div class="status-sublabel">Publication</div>
+            </div>
+
+            <div class="status-card stage-cited">
+                <div class="status-value" id="stage-cited-count">0</div>
+                <div class="status-label">Cited in the OJEU</div>
+                <div class="status-sublabel">Presumption of conformity applies</div>
+            </div>
+        </div>
+
+
 
         <div class="caveats-box">
     <h3><i class="fa-solid fa-circle-info"></i> Important Caveats</h3>
@@ -1021,6 +1131,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderArticles();
             renderStandards();
+               updateDashboard();
             
             // Draw connections after a short delay to ensure elements are rendered
             setTimeout(() => {
@@ -1034,10 +1145,30 @@
                 resizeTimeout = setTimeout(drawConnections, 100);
             });
         });
-    </script>
 
+        // Calculate and update dashboard stats
+        function updateDashboard() {
+            const stageCounts = { 10: 0, 20: 0, 40: 0, 60: 0 };
+            
+            standards.forEach(standard => {
+                if (standard.stage >= 60) stageCounts[60]++;
+                else if (standard.stage >= 40) stageCounts[40]++;
+                else if (standard.stage >= 20) stageCounts[20]++;
+                else if (standard.stage >= 10) stageCounts[10]++;
+            });
+            
+            document.getElementById('total-standards').textContent = standards.length;
+            document.getElementById('stage-10-count').textContent = stageCounts[10];
+            document.getElementById('stage-20-count').textContent = stageCounts[20];
+            document.getElementById('stage-40-count').textContent = stageCounts[40];
+            document.getElementById('stage-60-count').textContent = stageCounts[60];
+        }
+
+
+    </script>
+<center>
 <a title="Web Analytics" href="https://clicky.com/101497465"><img alt="Clicky" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
 <script async data-id="101497465" src="//static.getclicky.com/js"></script>
-
+</center>
 </body>
 </html>
