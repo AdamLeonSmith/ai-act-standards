@@ -354,21 +354,30 @@
             transform: translateX(-50%) translateY(0);
         }
 
+        .substack-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
         .substack-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
             font-size: 0.8rem;
             color: var(--accent-blue);
-            margin-top: 0.5rem;
             padding: 0.3rem 0.7rem;
             background: rgba(74, 111, 165, 0.1);
             border-radius: 6px;
             transition: all 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
         }
 
-        .standard-card.has-link:hover .substack-badge {
+        .substack-badge:hover {
             background: rgba(74, 111, 165, 0.2);
+            transform: translateY(-1px);
         }
 
         #connection-svg {
@@ -729,8 +738,8 @@
         <li>This information is based on draft standards circulated for public enquiry (or DIS), or information published by CEN-CENELEC</li>
         <li>This mapping represents the <strong>intended coverage</strong> as standards are being developed</li>
         <li>Standards are at different development stages - check <a href="https://www.iso.org/stage-codes.html">stage indicators</a> for maturity. A good overview of the overall process can be found <a href="https://artificialintelligenceact.eu/standard-setting-overview/">here</a>.</li>
-        <li>Final harmonised standards can differ from current drafts, drafts are Enquiry stage are not approved by national bodies</li>
-        <li>Some standards will contain normative references, these will be added once those standards reach the Enquiry stage and will increase the total number</li>
+        <li>Final <a href="https://adamleonsmith.substack.com/p/understanding-the-different-types">harmonised standards</a> can differ from current drafts, drafts are Enquiry stage are not approved by national bodies</li>
+        <li>Some standards will contain <a href="https://adamleonsmith.substack.com/p/understanding-the-different-types">normative references</a>, these will be added once those standards reach the Enquiry stage and will increase the total number</li>
         <li>Always consult official EU AI Act text, the OJEU and published harmonised standards for compliance</li>
     </ul>
 </div>
@@ -847,7 +856,7 @@
     </div>
 </div>
 <div class="footer">
-    Published under CC BY 4.0. This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as attribution is given to the creator. The license allows for commercial use. <a href="https://creativecommons.org/licenses/by/4.0/">More details</div>a>.
+    Published under CC BY 4.0. This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as attribution is given to the creator. The license allows for commercial use. <a href="https://creativecommons.org/licenses/by/4.0/">More details</a>.
 </div>
     <script>
         // Configuration: Define which articles map to which standards
@@ -869,56 +878,69 @@
                 title: 'Art 9 - Risk Management System',
                 icon: 'fa-triangle-exclamation',
                 color: '#dc2626',
-                aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9/'
+                aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9/',
+                substackLinks: [] // Add links as needed: [{ label: 'Analysis', url: 'https://...' }]
             },
             {
                 id: 'art10',
                 title: 'Art 10 - Data and Data Governance',
                 icon: 'fa-database',
                 color: '#7c3aed',
-                aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-10/'
+                aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-10/',
+                substackLinks: []
             },
             {
                 id: 'art12',
                 title: 'Art 12 - Record-Keeping',
                 icon: 'fa-folder-open',
                 color: '#0891b2',
-                aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12/'
+                aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12/',
+                substackLinks: []
             },
             {
                 id: 'art13',
                 title: 'Art 13 - Transparency and Provision of Information to Deployers',
                 icon: 'fa-eye',
                 color: '#2563eb',
-                aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-13/'
+                aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-13/',
+                substackLinks: [{ label: 'Related standard analysis', url: 'https://adamleonsmith.substack.com/p/using-en-isoiec-12792-to-help-with?r=5t4jd8' }]
             },
             {
                 id: 'art14',
                 title: 'Art 14 - Human Oversight',
                 icon: 'fa-user-shield',
                 color: '#7c2d12',
-                aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14/'
+                aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14/',
+                substackLinks: []
             },
             {
                 id: 'art15',
                 title: 'Art 15 – Accuracy, Robustness and Cybersecurity',
                 icon: 'fa-shield-halved',
                 color: '#059669',
-                aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-15/'
+                aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-15/',
+                substackLinks: [
+                    { label: 'Cybersecurity standards comparison', url: 'https://adamleonsmith.substack.com/p/which-standard-to-use-for-the-cybersecurity?r=5t4jd8'},
+                    { label: 'Task-level assurance', url: 'https://adamleonsmith.substack.com/p/task-level-ai-assurance?r=5t4jd8'}
+                ]
             },
             {
                 id: 'art17',
                 title: 'Art 17 – Quality Management System',
                 icon: 'fa-award',
                 color: '#d97706',
-                aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-17/'
+                aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-17/',
+                substackLinks: [
+
+                ]
             },
             {
                 id: 'art72',
                 title: 'Art 72 - Post-Market Monitoring by Providers and Post-Market Monitoring Plan for High-Risk AI Systems',
                 icon: 'fa-chart-line',
                 color: '#4f46e5',
-                aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72/'
+                aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72/',
+                substackLinks: []
             }
         ];
 
@@ -930,7 +952,7 @@
                 title: 'AI Risk Management',
                 stage: 20,
                 scope: 'This document specifies requirements on risk management for AI systems. This document also provides clear and actionable guidance on how risk can be addressed and mitigated throughout the entire lifecycle of the AI system. It applies to risk management for a broad range of products and services which use AI technology, including explicit considerations for vulnerable people. Risks covered include both risks to health and safety and risks to fundamental rights which can arise from AI systems, with impact for individuals, organisations, market and society. This document also defines methods that can be used to determine if a package of risk management measures associated with an AI system will be able to ensure that certain risks arising from that product or system are identified, monitored, and managed, leading to an acceptable level of risk. This document is intended for use by organizations and individuals providing, using, or being affected by products or services that use AI technology, no matter what their size, nature, or location is. The included requirements and guidance have however been specifically tailored to support organisations and individuals who operate inside of the European Union, as well as organisations and individuals outside of the Union who are active in the European Union market or who intend to enter that market. They have been tailored to support these organisations and individuals in meeting applicable regulatory requirements, with the flexibility to accommodate additional expectations from parties they may interact with',
-                substackUrl: '' // Add your Substack article URL here
+                substackLinks: []
             },
             {
                 id: 'prEN18284',
@@ -938,7 +960,7 @@
                 title: 'Quality and governance of datasets in AI',
                 stage: 10,
                 scope: 'This document provides guidance and requirements for the creation and management of datasets in the context of AI, including design choices, data collection and preparation. It defines metrics and methodology to assess dataset quality characteristics such as representativeness, relevance, completeness and correctness. This encompasses consideration of any data, including training data, validation data and test data, and to be used in conjunction with any AI technology.',
-                substackUrl: ''
+                substackLinks: []
             },
             {
                 id: 'prEN18283',
@@ -946,7 +968,7 @@
                 title: 'Concepts, measures and requirements for managing bias in AI systems',
                 stage: 10,  
                 scope: 'This document defines concepts, measures and requirements for assessment and treatment of bias in AI systems. This includes bias unwanted by the AI Provider and AI Deployer according to their specification of the AI system, in the context of the AI Act. This encompasses consideration of data bias including any data used to build or assess the AI system, but also system or model bias that can result from algorithmic factors, such as algorithm design choices.',
-                substackUrl: ''
+                substackLinks: []
             },
             {
                 id: 'prEN18229-1',
@@ -954,7 +976,9 @@
                 title: 'AI trustworthiness framework – Part 1: Logging, transparency and human oversight',
                 stage: 20,
                 scope: 'This document provides terminology, concepts, requirements, and guidance for transparency, logging, and human oversight of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
-                substackUrl: ''
+                substackLinks: [
+                    
+                ]
             },
             {
                 id: 'prEN18229-2',
@@ -962,7 +986,7 @@
                 title: 'AI trustworthiness framework – Part 2: Accuracy and robustness',
                 stage: 20,
                 scope: 'This document provides terminology, concepts, requirements, and guidance for the accuracy and robustness of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
-                substackUrl: ''
+                substackLinks: []
             },
             {
                 id: 'prEN18282',
@@ -970,7 +994,9 @@
                 title: 'Cybersecurity specifications for AI systems',
                 stage: 20,
                 scope: 'This document addresses organizational and technical solutions aimed at ensuring the cybersecurity of high-risk AI systems over the lifecycle, appropriate to the relevant circumstances and the risks. The technical solutions to address AI specific vulnerabilities include, where appropriate, measures to prevent, detect, respond to, resolve and control for attacks trying to manipulate the training dataset (data poisoning), or pre-trained components used in training (model poisoning), inputs designed to cause the model to make a mistake (adversarial examples or model evasion), confidentiality attacks or model flaws. This document provides objective criteria to enable decisions on whether a given technical or organizational solution adequately achieves a given vulnerability-related goal.',
-                substackUrl: ''
+                substackLinks: [
+                
+                ]
             },
             {
                 id: 'prEN18286',
@@ -978,7 +1004,10 @@
                 title: 'Quality management system for EU AI Act regulatory purposes',
                 stage: 40,
                 scope: 'This document specifies the requirements and provides guidance for the definition, implementation, maintenance and improvement of a quality management system for organizations that provide AI systems. This document is intended to support the organization in meeting applicable regulatory requirements.',
-                substackUrl: 'https://adamleonsmith.substack.com/p/pren-18286'
+                substackLinks: [
+                    { label: 'Structural analysis', url: 'https://adamleonsmith.substack.com/p/the-distinctive-structure-of-pren' },
+                    { label: 'Quick overview', url: 'https://adamleonsmith.substack.com/p/pren-18286' }
+                ]
             }
         ];
 
@@ -1001,6 +1030,21 @@
                 card.id = `article-${article.id}`;
                 card.dataset.articleId = article.id;
                 card.style.animationDelay = `${0.1 * index}s`;
+                
+                // Generate Substack links HTML
+                let substackLinksHtml = '';
+                if (article.substackLinks && article.substackLinks.length > 0) {
+                    substackLinksHtml = '<div class="substack-links">';
+                    article.substackLinks.forEach(link => {
+                        substackLinksHtml += `
+                            <a href="${link.url}" target="_blank" class="substack-badge" onclick="event.stopPropagation();">
+                                <i class="fa-solid fa-newspaper"></i> ${link.label}
+                            </a>
+                        `;
+                    });
+                    substackLinksHtml += '</div>';
+                }
+                
                 card.innerHTML = `
                     <div class="article-header">
                         <div class="article-icon" style="background: ${article.color};">
@@ -1008,11 +1052,11 @@
                         </div>
                         <div class="article-title">${article.title}</div>
                     </div>
+                    ${substackLinksHtml}
                 `;
                 
                 // Add click handler to open AI Act Explorer
                 card.addEventListener('click', (e) => {
-                    // Don't navigate if we're just hovering for highlighting
                     if (article.aiActUrl) {
                         window.open(article.aiActUrl, '_blank');
                     }
@@ -1033,15 +1077,21 @@
                 card.className = 'standard-card';
                 card.id = `standard-${standard.id}`;
                 card.dataset.standardId = standard.id;
-                if (standard.substackUrl) {
-                    card.classList.add('has-link');
-                    card.onclick = () => window.open(standard.substackUrl, '_blank');
-                }
                 card.style.animationDelay = `${0.1 * index}s`;
                 
-                const substackBadge = standard.substackUrl 
-                    ? '<div class="substack-badge"><i class="fa-solid fa-newspaper"></i> Analysis available</div>'
-                    : '';
+                // Generate Substack links HTML
+                let substackLinksHtml = '';
+                if (standard.substackLinks && standard.substackLinks.length > 0) {
+                    substackLinksHtml = '<div class="substack-links">';
+                    standard.substackLinks.forEach(link => {
+                        substackLinksHtml += `
+                            <a href="${link.url}" target="_blank" class="substack-badge">
+                                <i class="fa-solid fa-newspaper"></i> ${link.label}
+                            </a>
+                        `;
+                    });
+                    substackLinksHtml += '</div>';
+                }
                 
                 card.innerHTML = `
                     <div class="standard-code">
@@ -1049,7 +1099,7 @@
                         ${standard.code}
                     </div>
                     <div class="standard-title">${standard.title}</div>
-                    ${substackBadge}
+                    ${substackLinksHtml}
                     <div class="standard-scope">${standard.scope}</div>
                 `;
                 
@@ -1146,7 +1196,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderArticles();
             renderStandards();
-               updateDashboard();
+            updateDashboard();
             
             // Draw connections after a short delay to ensure elements are rendered
             setTimeout(() => {
