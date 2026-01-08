@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">    
+
+<head>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="canonical" href="https://ai-act-standards.com/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta name="description" content="Interactive mapping of CEN-CENELEC harmonised standards to EU AI Act compliance requirements. Explore connections between articles and standards with detailed scope descriptions.">
-    <meta name="keywords" content="AI Act, EU AI Act, harmonised standards, CEN-CENELEC, prEN 18286, AI compliance, AI Act standards">
+
+    <meta name="description"
+        content="Interactive mapping of CEN-CENELEC harmonised standards to EU AI Act compliance requirements. Explore connections between articles and standards with detailed scope descriptions.">
+    <meta name="keywords"
+        content="AI Act, EU AI Act, harmonised standards, CEN-CENELEC, prEN 18286, AI compliance, AI Act standards">
     <meta name="author" content="Adam Leon Smith">
 
     <!-- Open Graph for social sharing -->
     <meta property="og:title" content="AI Act Harmonised Standards Mapping">
-    <meta property="og:description" content="Interactive visualization showing how CEN-CENELEC standards map to EU AI Act requirements">
+    <meta property="og:description"
+        content="Interactive visualization showing how CEN-CENELEC standards map to EU AI Act requirements">
     <meta property="og:url" content="https://ai-act-standards.com">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://ai-act-standards.com/social.png">
-    <meta property="og:image:alt" content="Interactive visualization showing how CEN-CENELEC standards map to EU AI Act requirements">
+    <meta property="og:image:alt"
+        content="Interactive visualization showing how CEN-CENELEC standards map to EU AI Act requirements">
 
     <title>EU AI Act - Harmonised standards map</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary-dark: #1a1a2e;
@@ -190,7 +197,8 @@
             border-bottom: 3px solid var(--accent-gold);
         }
 
-        .article-card, .standard-card {
+        .article-card,
+        .standard-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 12px;
@@ -222,7 +230,8 @@
             opacity: 1;
         }
 
-        .article-card::before, .standard-card::before {
+        .article-card::before,
+        .standard-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -234,18 +243,21 @@
             transition: transform 0.3s ease;
         }
 
-        .article-card:hover, .standard-card:hover {
+        .article-card:hover,
+        .standard-card:hover {
             transform: scale(1.02);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             border-color: var(--accent-gold);
             z-index: 10;
         }
 
-        .article-card:hover::before, .standard-card:hover::before {
+        .article-card:hover::before,
+        .standard-card:hover::before {
             transform: scaleY(1);
         }
 
-        .article-card.highlighted, .standard-card.highlighted {
+        .article-card.highlighted,
+        .standard-card.highlighted {
             border-color: var(--accent-blue);
             box-shadow: 0 8px 20px rgba(74, 111, 165, 0.2);
         }
@@ -404,6 +416,7 @@
             stroke-width: 3;
             opacity: 1;
         }
+
         .caveats-box {
             background: #fff3cd;
             border-left: 4px solid #d97706;
@@ -442,6 +455,7 @@
         .caveats-box li:last-child {
             margin-bottom: 0;
         }
+
         .changelog-section {
             margin-top: 4rem;
             padding: 2rem;
@@ -537,21 +551,23 @@
             .changelog-table {
                 font-size: 0.85rem;
             }
-            
+
             .changelog-table th,
             .changelog-table td {
                 padding: 0.5rem;
             }
-            
+
             .changelog-table .date-col,
             .changelog-table .standard-col {
                 width: auto;
             }
         }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -562,6 +578,7 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -573,6 +590,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -580,10 +598,13 @@
         }
 
         @media (max-width: 1200px) {
-.mapping-container {
-        grid-template-columns: 1fr 1fr;  /* Keep side-by-side */
-        gap: 1rem;  /* Smaller gap on mobile */
-    }
+            .mapping-container {
+                grid-template-columns: 1fr 1fr;
+                /* Keep side-by-side */
+                gap: 1rem;
+                /* Smaller gap on mobile */
+            }
+
             .header h1 {
                 font-size: 2rem;
             }
@@ -684,8 +705,128 @@
                 font-size: 2rem;
             }
         }
+
+        .faq-section {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-section h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            cursor: pointer;
+            background: var(--hover-bg);
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #f3f4f6;
+        }
+
+        .faq-question i {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(90deg);
+        }
+
+        .faq-question h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 0;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 1.25rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            padding: 0 1.25rem 1.25rem;
+        }
+
+        .faq-answer p {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+            color: #4b5563;
+        }
+
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-answer ul {
+            margin: 0.75rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+            color: #4b5563;
+        }
+
+        .faq-answer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .faq-answer a:hover {
+            color: var(--accent-gold);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 968px) {
+            .faq-question {
+                padding: 1rem;
+            }
+
+            .faq-question h3 {
+                font-size: 0.95rem;
+            }
+
+            .faq-answer {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="header">
         <h1>EU AI Act Harmonised Standards Mapping</h1>
@@ -699,25 +840,26 @@
                 <div class="status-label">Total Standards</div>
                 <div class="status-sublabel">CEN-CENELEC JTC 21</div>
             </div>
-            
+
             <div class="status-card stage-10">
                 <div class="status-value" id="stage-10-count">2</div>
                 <div class="status-label">Stage 10+</div>
                 <div class="status-sublabel">Drafting</div>
             </div>
-            
+
+
             <div class="status-card stage-20">
                 <div class="status-value" id="stage-20-count">4</div>
                 <div class="status-label">Stage 20+</div>
                 <div class="status-sublabel">Working / Committee Draft</div>
             </div>
-            
+
             <div class="status-card stage-40">
                 <div class="status-value" id="stage-40-count">1</div>
                 <div class="status-label">Stage 40+</div>
                 <div class="status-sublabel">Enquiry / DIS Draft</div>
             </div>
-            
+
             <div class="status-card stage-60">
                 <div class="status-value" id="stage-60-count">0</div>
                 <div class="status-label">Stage 60+</div>
@@ -733,17 +875,27 @@
 
 
 
-    <div class="caveats-box">
-    <h3><i class="fa-solid fa-circle-info"></i> Important Caveats</h3>
-    <ul>
-        <li>This information is based on draft standards circulated for public enquiry (or DIS), or information published by CEN-CENELEC</li>
-        <li>This mapping represents the <strong>intended coverage</strong> as standards are being developed</li>
-        <li>Standards are at different development stages - check <a href="https://www.iso.org/stage-codes.html">stage indicators</a> for maturity. A good overview of the overall process can be found <a href="https://artificialintelligenceact.eu/standard-setting-overview/">here</a>.</li>
-        <li>Final <a href="https://adamleonsmith.substack.com/p/understanding-the-different-types">harmonised standards</a> can differ from current drafts, drafts are Enquiry stage are not approved by national bodies</li>
-        <li>Some standards will contain <a href="https://adamleonsmith.substack.com/p/understanding-the-different-types">normative references</a>, these will be added once those standards reach the Enquiry stage and will increase the total number</li>
-        <li>Always consult official EU AI Act text, the OJEU and published harmonised standards for compliance</li>
-    </ul>
-</div>
+        <div class="caveats-box">
+            <h3><i class="fa-solid fa-circle-info"></i> Important Caveats</h3>
+            <ul>
+                <li>This information is based on draft standards circulated for public enquiry (or DIS), or information
+                    published by CEN-CENELEC</li>
+                <li>This mapping represents the <strong>intended coverage</strong> as standards are being developed</li>
+                <li>Standards are at different development stages - check <a
+                        href="https://www.iso.org/stage-codes.html">stage indicators</a> for maturity. A good overview
+                    of the overall process can be found <a
+                        href="https://artificialintelligenceact.eu/standard-setting-overview/">here</a>.</li>
+                <li>Final <a href="https://adamleonsmith.substack.com/p/understanding-the-different-types">harmonised
+                        standards</a> can differ from current drafts, drafts are Enquiry stage are not approved by
+                    national bodies</li>
+                <li>Some standards will contain <a
+                        href="https://adamleonsmith.substack.com/p/understanding-the-different-types">normative
+                        references</a>, these will be added once those standards reach the Enquiry stage and will
+                    increase the total number</li>
+                <li>Always consult official EU AI Act text, the OJEU and published harmonised standards for compliance
+                </li>
+            </ul>
+        </div>
 
         <div class="legend">
             <div class="legend-item">
@@ -761,7 +913,7 @@
                 <span>Stage 40+</span>
                 <div class="legend-tooltip">Enquiry / Draft International Standard stage</div>
             </div>
-                        <div class="legend-item">
+            <div class="legend-item">
                 <div class="legend-dot" style="background: var(--stage-50);"></div>
                 <span>Stage 50+</span>
                 <div class="legend-tooltip">Approval stage</div>
@@ -778,7 +930,9 @@
             <svg id="connection-svg"></svg>
             <div class="mapping-container">
                 <div class="articles-column">
-                    <h2 class="column-header">Intended Presumption of Conformity (<a href="https://adamleonsmith.substack.com/p/understanding-the-different-types">unconfirmed</a>)</h2>
+                    <h2 class="column-header">Intended Presumption of Conformity (<a
+                            href="https://adamleonsmith.substack.com/p/understanding-the-different-types">unconfirmed</a>)
+                    </h2>
                     <div id="articles"></div>
                 </div>
 
@@ -791,74 +945,195 @@
     </div>
     <div class="caveats-box">
         <center>
-        <p>Interactive mapping created by Adam Leon Smith, for updates, subscribe for free to <a href="https://adamleonsmith.substack.com/" target="_blank">my substack</a></p>
+            <p>Interactive mapping created by Adam Leon Smith, for updates, subscribe for free to <a
+                    href="https://adamleonsmith.substack.com/" target="_blank">my substack</a></p>
         </center>
     </div>
 
-<div class="container">
-    <div class="changelog-section">
-        <h2>Changelog</h2>
-        <table class="changelog-table">
-            <thead>
-                <tr>
-                    <th class="date-col">Date</th>
-                    <th class="standard-col">Standard</th>
-                    <th>Change</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="date-col">2025-12-09</td>
-                    <td class="standard-col">prEN 18229-2</td>
-                    <td>
-                        <span class="change-type mapping">Stage progression</span>
-                        prEN 18229-2 launched for working draft consultation with national bodies
-                    </td>
-                </tr>
-                 <tr>
-                    <td class="date-col">2025-12-01</td>
-                    <td class="standard-col">All</td>
-                    <td>
-                        <span class="change-type mapping">Mapping</span>
-                        Initial publication of interactive standards mapping based on prEN 18286, Annex B, and CEN-CENELEC website project scopes.
-                    </td>
-                </tr>
+    <div class="container">
+        <div class="changelog-section">
+            <h2>Changelog</h2>
+            <table class="changelog-table">
+                <thead>
+                    <tr>
+                        <th class="date-col">Date</th>
+                        <th class="standard-col">Standard</th>
+                        <th>Change</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="date-col">2026-01-08</td>
+                        <td class="standard-col">FAQ</td>
+                        <td>
+                            <span class="change-type mapping">Additional information</span>
+                            Added FAQ section
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="date-col">2025-12-09</td>
+                        <td class="standard-col">prEN 18229-2</td>
+                        <td>
+                            <span class="change-type mapping">Stage progression</span>
+                            prEN 18229-2 launched for working draft consultation with national bodies
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="date-col">2025-12-01</td>
+                        <td class="standard-col">All</td>
+                        <td>
+                            <span class="change-type mapping">Mapping</span>
+                            Initial publication of interactive standards mapping based on prEN 18286, Annex B, and
+                            CEN-CENELEC website project scopes.
+                        </td>
+                    </tr>
 
-                <!-- Add new entries here as you make updates -->
-                <!-- Example entries: -->
-                <!--
-                <tr>
-                    <td class="date-col">2024-12-15</td>
-                    <td class="standard-col">prEN 18286</td>
-                    <td>
-                        <span class="change-type analysis">Analysis</span>
-                        Added Substack analysis link
-                    </td>
-                </tr>
-                <tr>
-                    <td class="date-col">2024-12-20</td>
-                    <td class="standard-col">prEN 18228</td>
-                    <td>
-                        <span class="change-type stage">Stage</span>
-                        Updated to Stage 40 (Committee draft)
-                    </td>
-                </tr>
-                <tr>
-                    <td class="date-col">2025-01-10</td>
-                    <td class="standard-col">prEN 18229-1</td>
-                    <td>
-                        <span class="change-type scope">Scope</span>
-                        Updated scope description based on latest draft
-                    </td>
-                </tr>
-                -->
-            </tbody>
-        </table>
+                
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
-<div class="footer">
-    Published under CC BY 4.0. This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as attribution is given to the creator. The license allows for commercial use. <a href="https://creativecommons.org/licenses/by/4.0/">More details</a>.
-</div>
+
+    <div class="container">
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <h3>What are harmonised standards and why do they matter?</h3>
+                </div>
+                <div class="faq-answer">
+                    <p>Harmonised standards are technical specifications developed by European Standardisation
+                        Organisations (CEN-CENELEC in this case) that provide a presumption of conformity with EU
+                        legislation. When a standard is cited in the Official Journal of the EU (OJEU), following it
+                        creates a rebuttable presumption that you comply with the corresponding legal requirements. For
+                        the AI Act, this means demonstrating compliance becomes significantly more straightforward.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <h3>What do the different stage indicators mean?</h3>
+                </div>
+                <div class="faq-answer">
+                    <p>Standards development follows a structured process with defined stages:</p>
+                    <ul>
+                        <li><strong>Stage 10 (Red):</strong> Project approved and initial drafting underway</li>
+                        <li><strong>Stage 20 (Yellow):</strong> Working Draft or Committee Draft being developed</li>
+                        <li><strong>Stage 40 (Purple):</strong> Enquiry/DIS Draft - circulated to national bodies for
+                            comment</li>
+                        <li><strong>Stage 50 (Teal):</strong> Approval stage - formal voting by national bodies</li>
+                        <li><strong>Stage 60 (Blue):</strong> Publication stage - standard is published</li>
+                    </ul>
+                    <p>Only standards that reach Stage 60 and are then cited in the OJEU provide presumption of
+                        conformity. Learn more about the process <a href="https://www.iso.org/stage-codes.html"
+                            target="_blank">here</a>.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <h3>What is this AI Act harmonised standards map?</h3>
+                </div>
+                <div class="faq-answer">
+                    This site provides an interactive mapping of the intended coverage of harmonised standards being
+                    developed for the EU AI Act by CEN and CENELEC. It summarises which standardisation projects relate
+                    to different parts of the AI Act and how far along they are in the development process
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <h3>Who created this standards map?</h3>
+                </div>
+                <div class="faq-answer">
+                    The interactive mapping was created by Adam Leon Smith, based on information from draft standards such as prEN 18286 and project scopes published by CEN‑CENELEC. It is an independent resource and is not an official publication of the European institutions or the European standardisation organisations
+                </div>
+            </div>
+
+<div class="faq-item">
+                <div class="faq-question">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <h3>How up to date is the map?</h3>
+                </div>
+                <div class="faq-answer">
+                    The changelog on the site records updates to the mapping, including newly added projects and stage progressions such as the launch of working draft consultations. Users should always check the date of the latest update and consult official sources for the most current status of each standardisation project.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <h3>Does the map include normative references between standards?</h3>
+                </div>
+                <div class="faq-answer">
+                    Some standards in this area are expected to include normative references to other standards, but those are incorporated into the mapping only once the referenced standards reach a sufficiently advanced stage, such as the enquiry stage. As a result, the mapping may not yet show every dependency or cross‑reference that will exist in the final harmonised standards set.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <h3>Can I rely on these draft standards for compliance now?</h3>
+                </div>
+                <div class="faq-answer">
+                    <p>Not yet for presumption of conformity. Standards only provide presumption of conformity once they're published (Stage 60+) and cited in the OJEU. However, draft standards at Enquiry stage (Stage 40+) can provide valuable guidance on emerging best practices and indicate the direction of regulatory expectations. Always consult the official AI Act text and wait for OJEU citations for formal compliance.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <h3>How does this mapping relate to the AI Act's requirements?</h3>
+                </div>
+                <div class="faq-answer">
+                    <p>This mapping shows the <strong>intended coverage</strong> of standards being developed by CEN-CENELEC JTC 21. The standards are designed to address specific articles of the AI Act, particularly Chapter III Section 2 requirements for high-risk AI systems (Articles 9-15) plus the quality management system (Article 17) and post-market monitoring (Article 72). Each standard's scope has been carefully designed to align with these legal requirements.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <h3>Are there other standards beyond CEN-CENELEC that I should know about?</h3>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. ISO/IEC JTC 1/SC 42 develops international AI standards that may become harmonised standards through adoption by CEN-CENELEC. Additionally,
+                        sector-specific standards and cybersecurity standards (like those from ETSI) may be relevant. However, only standards cited in the OJEU provide presumption of conformity with the AI Act.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <h3>What's the timeline for these standards to be published and cited?</h3>
+                </div>
+                <div class="faq-answer">
+                    <p>Standard development typically takes 2-4 years from project start to publication. Current estimates suggest the first CEN-CENELEC AI Act standards may reach publication in 2026. However, citation in the OJEU is a separate process that occurs after publication and is at the discretion of the European Commission.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <h3>How can I participate in standards development?</h3>
+                </div>
+                <div class="faq-answer">
+                    <p>Standards development occurs through National Standards Bodies (NSBs). In the UK, this is BSI; in Germany, DIN; in France, AFNOR, etc. Organizations and experts can participate by joining relevant technical committees through their NSB. CEN-CENELEC JTC 21 develops AI standards with input from national mirror committees.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="footer">
+        Published under CC BY 4.0. This license enables reusers to distribute, remix, adapt, and build upon the material
+        in any medium or format, so long as attribution is given to the creator. The license allows for commercial use.
+        <a href="https://creativecommons.org/licenses/by/4.0/">More details</a>.
+    </div>
     <script>
         // Configuration: Define which articles map to which standards
         const mappings = [
@@ -869,7 +1144,7 @@
             { article: 'art14', standards: ['prEN18229-1'] },
             { article: 'art15', standards: ['prEN18229-2', 'prEN18282'] },
             { article: 'art17', standards: ['prEN18286'] },
-            { article: 'art72', standards: ['prEN18286'] } 
+            { article: 'art72', standards: ['prEN18286'] }
         ];
 
         // AI Act articles configuration
@@ -921,8 +1196,8 @@
                 color: '#059669',
                 aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-15/',
                 substackLinks: [
-                    { label: 'Cybersecurity standards comparison', url: 'https://adamleonsmith.substack.com/p/which-standard-to-use-for-the-cybersecurity?r=5t4jd8'},
-                    { label: 'Task-level assurance', url: 'https://adamleonsmith.substack.com/p/task-level-ai-assurance?r=5t4jd8'}
+                    { label: 'Cybersecurity standards comparison', url: 'https://adamleonsmith.substack.com/p/which-standard-to-use-for-the-cybersecurity?r=5t4jd8' },
+                    { label: 'Task-level assurance', url: 'https://adamleonsmith.substack.com/p/task-level-ai-assurance?r=5t4jd8' }
                 ]
             },
             {
@@ -967,7 +1242,7 @@
                 id: 'prEN18283',
                 code: 'prEN 18283',
                 title: 'Concepts, measures and requirements for managing bias in AI systems',
-                stage: 10,  
+                stage: 10,
                 scope: 'This document defines concepts, measures and requirements for assessment and treatment of bias in AI systems. This includes bias unwanted by the AI Provider and AI Deployer according to their specification of the AI system, in the context of the AI Act. This encompasses consideration of data bias including any data used to build or assess the AI system, but also system or model bias that can result from algorithmic factors, such as algorithm design choices.',
                 substackLinks: []
             },
@@ -978,7 +1253,7 @@
                 stage: 20,
                 scope: 'This document provides terminology, concepts, requirements, and guidance for transparency, logging, and human oversight of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
                 substackLinks: [
-                    
+
                 ]
             },
             {
@@ -996,7 +1271,7 @@
                 stage: 20,
                 scope: 'This document addresses organizational and technical solutions aimed at ensuring the cybersecurity of high-risk AI systems over the lifecycle, appropriate to the relevant circumstances and the risks. The technical solutions to address AI specific vulnerabilities include, where appropriate, measures to prevent, detect, respond to, resolve and control for attacks trying to manipulate the training dataset (data poisoning), or pre-trained components used in training (model poisoning), inputs designed to cause the model to make a mistake (adversarial examples or model evasion), confidentiality attacks or model flaws. This document provides objective criteria to enable decisions on whether a given technical or organizational solution adequately achieves a given vulnerability-related goal.',
                 substackLinks: [
-                
+
                 ]
             },
             {
@@ -1031,7 +1306,7 @@
                 card.id = `article-${article.id}`;
                 card.dataset.articleId = article.id;
                 card.style.animationDelay = `${0.1 * index}s`;
-                
+
                 // Generate Substack links HTML
                 let substackLinksHtml = '';
                 if (article.substackLinks && article.substackLinks.length > 0) {
@@ -1045,7 +1320,7 @@
                     });
                     substackLinksHtml += '</div>';
                 }
-                
+
                 card.innerHTML = `
                     <div class="article-header">
                         <div class="article-icon" style="background: ${article.color};">
@@ -1055,18 +1330,18 @@
                     </div>
                     ${substackLinksHtml}
                 `;
-                
+
                 // Add click handler to open AI Act Explorer
                 card.addEventListener('click', (e) => {
                     if (article.aiActUrl) {
                         window.open(article.aiActUrl, '_blank');
                     }
                 });
-                
+
                 // Add hover event for highlighting connections
                 card.addEventListener('mouseenter', () => highlightConnections(article.id, 'article'));
                 card.addEventListener('mouseleave', clearHighlights);
-                
+
                 container.appendChild(card);
             });
         }
@@ -1079,7 +1354,7 @@
                 card.id = `standard-${standard.id}`;
                 card.dataset.standardId = standard.id;
                 card.style.animationDelay = `${0.1 * index}s`;
-                
+
                 // Generate Substack links HTML
                 let substackLinksHtml = '';
                 if (standard.substackLinks && standard.substackLinks.length > 0) {
@@ -1093,7 +1368,7 @@
                     });
                     substackLinksHtml += '</div>';
                 }
-                
+
                 card.innerHTML = `
                     <div class="standard-code">
                         <div class="stage-indicator" style="background: ${getStageColor(standard.stage)};"></div>
@@ -1103,11 +1378,11 @@
                     ${substackLinksHtml}
                     <div class="standard-scope">${standard.scope}</div>
                 `;
-                
+
                 // Add hover event for highlighting connections
                 card.addEventListener('mouseenter', () => highlightConnections(standard.id, 'standard'));
                 card.addEventListener('mouseleave', clearHighlights);
-                
+
                 container.appendChild(card);
             });
         }
@@ -1115,7 +1390,7 @@
         function drawConnections() {
             const svg = document.getElementById('connection-svg');
             const container = document.querySelector('.mapping-wrapper');
-            
+
             // Set SVG size to match container
             const updateSVGSize = () => {
                 const rect = container.getBoundingClientRect();
@@ -1124,29 +1399,29 @@
             };
             updateSVGSize();
             window.addEventListener('resize', updateSVGSize);
-            
+
             // Clear existing paths
             svg.innerHTML = '';
-            
+
             // Draw lines for each mapping
             mappings.forEach(mapping => {
                 const articleEl = document.getElementById(`article-${mapping.article}`);
                 if (!articleEl) return;
-                
+
                 mapping.standards.forEach(standardId => {
                     const standardEl = document.getElementById(`standard-${standardId}`);
                     if (!standardEl) return;
-                    
+
                     const articleRect = articleEl.getBoundingClientRect();
                     const standardRect = standardEl.getBoundingClientRect();
                     const containerRect = container.getBoundingClientRect();
-                    
+
                     // Calculate connection points (right middle of article, left middle of standard)
                     const x1 = articleRect.right - containerRect.left;
                     const y1 = articleRect.top - containerRect.top + articleRect.height / 2;
                     const x2 = standardRect.left - containerRect.left;
                     const y2 = standardRect.top - containerRect.top + standardRect.height / 2;
-                    
+
                     // Create curved path
                     const midX = (x1 + x2) / 2;
                     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
@@ -1155,7 +1430,7 @@
                     path.setAttribute('class', 'connection-line');
                     path.dataset.article = mapping.article;
                     path.dataset.standard = standardId;
-                    
+
                     svg.appendChild(path);
                 });
             });
@@ -1165,13 +1440,13 @@
             // Find all relevant connections
             const lines = document.querySelectorAll('.connection-line');
             lines.forEach(line => {
-                const isRelevant = type === 'article' 
+                const isRelevant = type === 'article'
                     ? line.dataset.article === id
                     : line.dataset.standard === id;
-                
+
                 if (isRelevant) {
                     line.classList.add('highlighted');
-                    
+
                     // Highlight connected cards
                     if (type === 'article') {
                         const standardCard = document.getElementById(`standard-${line.dataset.standard}`);
@@ -1198,12 +1473,12 @@
             renderArticles();
             renderStandards();
             updateDashboard();
-            
+
             // Draw connections after a short delay to ensure elements are rendered
             setTimeout(() => {
                 drawConnections();
             }, 100);
-            
+
             // Redraw connections on window resize
             let resizeTimeout;
             window.addEventListener('resize', () => {
@@ -1215,14 +1490,14 @@
         // Calculate and update dashboard stats
         function updateDashboard() {
             const stageCounts = { 10: 0, 20: 0, 40: 0, 60: 0 };
-            
+
             standards.forEach(standard => {
                 if (standard.stage >= 60) stageCounts[60]++;
                 else if (standard.stage >= 40) stageCounts[40]++;
                 else if (standard.stage >= 20) stageCounts[20]++;
                 else if (standard.stage >= 10) stageCounts[10]++;
             });
-            
+
             document.getElementById('total-standards').textContent = standards.length;
             document.getElementById('stage-10-count').textContent = stageCounts[10];
             document.getElementById('stage-20-count').textContent = stageCounts[20];
@@ -1230,8 +1505,25 @@
             document.getElementById('stage-60-count').textContent = stageCounts[60];
         }
 
+        // FAQ accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const wasActive = item.classList.contains('active');
 
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+
+                // Open clicked item if it wasn't already open
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
     </script>
-<script async data-id="101497465" src="//static.getclicky.com/js"></script>
+    <script async data-id="101497465" src="//static.getclicky.com/js"></script>
 </body>
+
 </html>
