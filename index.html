@@ -182,8 +182,8 @@
 
         .mapping-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 3rem;
             position: relative;
         }
 
@@ -417,6 +417,101 @@
             opacity: 1;
         }
 
+        .connection-line.normative-ref {
+            stroke: var(--accent-teal);
+            stroke-dasharray: none;
+        }
+
+        .connection-line.normative-ref.highlighted {
+            stroke: var(--accent-teal);
+            stroke-width: 3;
+            opacity: 1;
+        }
+
+        .connection-line.internal-link {
+            stroke: var(--accent-gold);
+            stroke-dasharray: 6 4;
+            opacity: 0.5;
+        }
+
+        .connection-line.internal-link.highlighted {
+            stroke: var(--accent-gold);
+            stroke-width: 3;
+            opacity: 1;
+        }
+
+        .normref-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: visible;
+        }
+
+        .normref-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-teal);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .normref-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-teal);
+            z-index: 10;
+        }
+
+        .normref-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .normref-card.highlighted {
+            border-color: var(--accent-teal);
+            box-shadow: 0 8px 20px rgba(44, 154, 158, 0.2);
+        }
+
+        .normref-code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-teal);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .normref-title {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+        }
+
+        .normref-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        .normref-tag.internal {
+            background: rgba(212, 175, 55, 0.15);
+            color: #b8960f;
+        }
+
+        .normref-tag.external {
+            background: rgba(44, 154, 158, 0.15);
+            color: var(--accent-teal);
+        }
+
         .caveats-box {
             background: #fff3cd;
             border-left: 4px solid #d97706;
@@ -599,10 +694,8 @@
 
         @media (max-width: 1200px) {
             .mapping-container {
-                grid-template-columns: 1fr 1fr;
-                /* Keep side-by-side */
-                gap: 1rem;
-                /* Smaller gap on mobile */
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 0.75rem;
             }
 
             .header h1 {
@@ -939,6 +1032,11 @@
                 <div class="standards-column">
                     <h2 class="column-header">Primary Project (Citation with Annex Z)</h2>
                     <div id="standards"></div>
+                </div>
+
+                <div class="normrefs-column">
+                    <h2 class="column-header">Normative References (unconfirmed)</h2>
+                    <div id="normrefs"></div>
                 </div>
             </div>
         </div>
@@ -1288,6 +1386,25 @@
             }
         ];
 
+        // Normative references: which standards reference which external/internal documents
+        const normativeReferences = [
+            {
+                id: 'ISO-IEC-TS-12791',
+                code: 'ISO/IEC TS 12791:2024',
+                title: 'Information technology — Artificial intelligence — Treatment of unwanted bias in classification and regression machine learning tasks',
+                referencedBy: ['prEN18284'],
+                isInternal: false
+            },
+            {
+                id: 'prEN18286-ref',
+                code: 'prEN 18286',
+                title: 'Quality management system for EU AI Act regulatory purposes',
+                referencedBy: ['prEN18282'],
+                isInternal: true,
+                internalId: 'prEN18286'
+            }
+        ];
+
         function getStageColor(stage) {
             const colors = {
                 10: '#dc2626',
@@ -1388,6 +1505,31 @@
             });
         }
 
+        function renderNormativeReferences() {
+            const container = document.getElementById('normrefs');
+            normativeReferences.forEach((ref, index) => {
+                const card = document.createElement('div');
+                card.className = 'normref-card';
+                card.id = `normref-${ref.id}`;
+                card.dataset.normrefId = ref.id;
+                card.style.animationDelay = `${0.1 * index}s`;
+
+                const tagClass = ref.isInternal ? 'internal' : 'external';
+                const tagLabel = ref.isInternal ? 'Internal reference' : 'External standard';
+
+                card.innerHTML = `
+                    <div class="normref-code">${ref.code}</div>
+                    <div class="normref-title">${ref.title}</div>
+                    <span class="normref-tag ${tagClass}">${tagLabel}</span>
+                `;
+
+                card.addEventListener('mouseenter', () => highlightConnections(ref.id, 'normref'));
+                card.addEventListener('mouseleave', clearHighlights);
+
+                container.appendChild(card);
+            });
+        }
+
         function drawConnections() {
             const svg = document.getElementById('connection-svg');
             const container = document.querySelector('.mapping-wrapper');
@@ -1435,26 +1577,104 @@
                     svg.appendChild(path);
                 });
             });
+
+            // Draw normative reference lines (standard -> normref)
+            normativeReferences.forEach(ref => {
+                const normrefEl = document.getElementById(`normref-${ref.id}`);
+                if (!normrefEl) return;
+
+                ref.referencedBy.forEach(standardId => {
+                    const standardEl = document.getElementById(`standard-${standardId}`);
+                    if (!standardEl) return;
+
+                    const standardRect = standardEl.getBoundingClientRect();
+                    const normrefRect = normrefEl.getBoundingClientRect();
+                    const containerRect = container.getBoundingClientRect();
+
+                    const x1 = standardRect.right - containerRect.left;
+                    const y1 = standardRect.top - containerRect.top + standardRect.height / 2;
+                    const x2 = normrefRect.left - containerRect.left;
+                    const y2 = normrefRect.top - containerRect.top + normrefRect.height / 2;
+
+                    const midX = (x1 + x2) / 2;
+                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    const d = `M ${x1} ${y1} C ${midX} ${y1}, ${midX} ${y2}, ${x2} ${y2}`;
+                    path.setAttribute('d', d);
+                    path.setAttribute('class', 'connection-line normative-ref');
+                    path.dataset.standard = standardId;
+                    path.dataset.normref = ref.id;
+
+                    svg.appendChild(path);
+                });
+
+                // Draw internal link lines (normref that references another standard in the middle column)
+                if (ref.isInternal && ref.internalId) {
+                    const targetStandardEl = document.getElementById(`standard-${ref.internalId}`);
+                    if (!targetStandardEl) return;
+
+                    // Find the source standards that reference this internal ref
+                    ref.referencedBy.forEach(sourceId => {
+                        const sourceEl = document.getElementById(`standard-${sourceId}`);
+                        if (!sourceEl) return;
+
+                        const sourceRect = sourceEl.getBoundingClientRect();
+                        const targetRect = targetStandardEl.getBoundingClientRect();
+                        const containerRect = container.getBoundingClientRect();
+
+                        // Draw a curved line within the standards column
+                        const x1 = sourceRect.right - containerRect.left - 10;
+                        const y1 = sourceRect.top - containerRect.top + sourceRect.height / 2;
+                        const x2 = targetRect.right - containerRect.left - 10;
+                        const y2 = targetRect.top - containerRect.top + targetRect.height / 2;
+
+                        // Curve outward to the right of the standards column
+                        const bulge = 40;
+                        const midY = (y1 + y2) / 2;
+                        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                        const d = `M ${x1} ${y1} C ${x1 + bulge} ${y1}, ${x2 + bulge} ${y2}, ${x2} ${y2}`;
+                        path.setAttribute('d', d);
+                        path.setAttribute('class', 'connection-line internal-link');
+                        path.dataset.standard = sourceId;
+                        path.dataset.internalTarget = ref.internalId;
+
+                        svg.appendChild(path);
+                    });
+                }
+            });
         }
 
         function highlightConnections(id, type) {
-            // Find all relevant connections
             const lines = document.querySelectorAll('.connection-line');
             lines.forEach(line => {
-                const isRelevant = type === 'article'
-                    ? line.dataset.article === id
-                    : line.dataset.standard === id;
+                let isRelevant = false;
+
+                if (type === 'article') {
+                    isRelevant = line.dataset.article === id;
+                } else if (type === 'standard') {
+                    isRelevant = line.dataset.standard === id || line.dataset.internalTarget === id;
+                } else if (type === 'normref') {
+                    isRelevant = line.dataset.normref === id;
+                }
 
                 if (isRelevant) {
                     line.classList.add('highlighted');
 
                     // Highlight connected cards
-                    if (type === 'article') {
-                        const standardCard = document.getElementById(`standard-${line.dataset.standard}`);
-                        if (standardCard) standardCard.classList.add('highlighted');
-                    } else {
+                    if (line.dataset.article) {
                         const articleCard = document.getElementById(`article-${line.dataset.article}`);
                         if (articleCard) articleCard.classList.add('highlighted');
+                    }
+                    if (line.dataset.standard) {
+                        const standardCard = document.getElementById(`standard-${line.dataset.standard}`);
+                        if (standardCard) standardCard.classList.add('highlighted');
+                    }
+                    if (line.dataset.normref) {
+                        const normrefCard = document.getElementById(`normref-${line.dataset.normref}`);
+                        if (normrefCard) normrefCard.classList.add('highlighted');
+                    }
+                    if (line.dataset.internalTarget) {
+                        const targetCard = document.getElementById(`standard-${line.dataset.internalTarget}`);
+                        if (targetCard) targetCard.classList.add('highlighted');
                     }
                 }
             });
@@ -1464,7 +1684,7 @@
             document.querySelectorAll('.connection-line').forEach(line => {
                 line.classList.remove('highlighted');
             });
-            document.querySelectorAll('.article-card, .standard-card').forEach(card => {
+            document.querySelectorAll('.article-card, .standard-card, .normref-card').forEach(card => {
                 card.classList.remove('highlighted');
             });
         }
@@ -1473,6 +1693,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderArticles();
             renderStandards();
+            renderNormativeReferences();
             updateDashboard();
 
             // Draw connections after a short delay to ensure elements are rendered
