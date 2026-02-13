@@ -1794,14 +1794,16 @@
         function updateDashboard() {
             const stageCounts = { 10: 0, 20: 0, 40: 0, 60: 0 };
 
-            standards.forEach(standard => {
+            const allStandards = [...standards, ...normativeReferences.filter(r => r.stage !== undefined)];
+
+            allStandards.forEach(standard => {
                 if (standard.stage >= 60) stageCounts[60]++;
                 else if (standard.stage >= 40) stageCounts[40]++;
                 else if (standard.stage >= 20) stageCounts[20]++;
                 else if (standard.stage >= 10) stageCounts[10]++;
             });
 
-            document.getElementById('total-standards').textContent = standards.length;
+            document.getElementById('total-standards').textContent = allStandards.length;
             document.getElementById('stage-10-count').textContent = stageCounts[10];
             document.getElementById('stage-20-count').textContent = stageCounts[20];
             document.getElementById('stage-40-count').textContent = stageCounts[40];
