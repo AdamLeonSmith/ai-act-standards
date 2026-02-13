@@ -1390,17 +1390,75 @@
         const normativeReferences = [
             {
                 id: 'ISO-IEC-TS-12791',
-                code: 'ISO/IEC TS 12791:2024',
+                code: 'EN ISO/IEC TS 12791:2024',
                 title: 'Information technology — Artificial intelligence — Treatment of unwanted bias in classification and regression machine learning tasks',
                 referencedBy: ['prEN18284'],
                 isInternal: false,
                 substackLinks: []
-            }
+            },
+                        {
+                id: 'ISO-IEC-24970',
+                code: 'prEN ISO/IEC DIS 24970',
+                title: 'Artificial intelligence — AI system logging',
+                referencedBy: ['prEN18229-1'],
+                isInternal: false,
+                substackLinks: []
+            },
+              {
+                id: 'ISO-IEC-12792',
+                code: 'EN ISO/IEC 12791:2025',
+                title: 'Information technology — Artificial intelligence (AI) — Transparency taxonomy of AI systems',
+                referencedBy: ['prEN18229-1'],
+                isInternal: false,
+                substackLinks: []
+            },
+                     {
+                id: 'ISO-IEC-24029-2',
+                code: 'EN ISO/IEC 24029-2:2023',
+                title: 'Artificial intelligence (AI) — Assessment of the robustness of neural networks — Part 2: Methodology for the use of formal methods',
+                referencedBy: ['prEN18229-1'],
+                isInternal: false,
+                substackLinks: []
+                     },
+                       {
+                id: 'ISO-IEC-24029-3',
+                code: 'EN ISO/IEC DIS 24029-3:—',
+                title: 'Artificial intelligence (AI) — Assessment of the robustness of neural networks — Part 3: Methodology for the use of statistical methods',
+                referencedBy: ['prEN18229-1'],
+                isInternal: false,
+                substackLinks: []
+                     },
+                           {
+                id: 'ISO-IEC-4213',
+                code: 'ISO/IEC CD 4213:— (2nd edition)',
+                title: 'Artificial intelligence — Performance measurement for AI classification, regression, clustering and recommendation tasks',
+                referencedBy: ['prEN18229-2'],
+                isInternal: true,
+                substackLinks: []
+                     },
+                         {
+                id: 'ISO-IEC-23282',
+                code: 'prEN ISO/IEC CD 23282:— (2nd edition)',
+                title: 'Artificial Intelligence — Evaluation methods for accurate natural language processing systems',
+                referencedBy: ['prEN18229-2'],
+                isInternal: false,
+                substackLinks: []
+                     },
+                            {
+                id: 'EN-18281',
+                code: 'prEN 18281:—',
+                title: 'Artificial Intelligence — Evaluation methods for accurate natural language processing systems',
+                referencedBy: ['prEN18229-2'],
+                isInternal: false,
+                substackLinks: []
+                     },
+            
         ];
 
         // Internal normative references between standards in the middle column
         const internalReferences = [
-            { source: 'prEN18282', target: 'prEN18286' }
+            { source: 'prEN18282', target: 'prEN18286' },
+             { source: 'prEN18284', target: 'prEN18283' }
         ];
 
         function getStageColor(stage) {
