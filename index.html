@@ -189,7 +189,7 @@
 
         .column-header {
             font-family: 'Fraunces', serif;
-            font-size: 1.3rem;
+            font-size: 1.05rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
             color: var(--primary-dark);
@@ -1394,15 +1394,12 @@
                 title: 'Information technology — Artificial intelligence — Treatment of unwanted bias in classification and regression machine learning tasks',
                 referencedBy: ['prEN18284'],
                 isInternal: false
-            },
-            {
-                id: 'prEN18286-ref',
-                code: 'prEN 18286',
-                title: 'Quality management system for EU AI Act regulatory purposes',
-                referencedBy: ['prEN18282'],
-                isInternal: true,
-                internalId: 'prEN18286'
             }
+        ];
+
+        // Internal normative references between standards in the middle column
+        const internalReferences = [
+            { source: 'prEN18282', target: 'prEN18286' }
         ];
 
         function getStageColor(stage) {
@@ -1514,13 +1511,10 @@
                 card.dataset.normrefId = ref.id;
                 card.style.animationDelay = `${0.1 * index}s`;
 
-                const tagClass = ref.isInternal ? 'internal' : 'external';
-                const tagLabel = ref.isInternal ? 'Internal reference' : 'External standard';
-
                 card.innerHTML = `
                     <div class="normref-code">${ref.code}</div>
                     <div class="normref-title">${ref.title}</div>
-                    <span class="normref-tag ${tagClass}">${tagLabel}</span>
+                    <span class="normref-tag external">External standard</span>
                 `;
 
                 card.addEventListener('mouseenter', () => highlightConnections(ref.id, 'normref'));
@@ -1543,8 +1537,17 @@
             updateSVGSize();
             window.addEventListener('resize', updateSVGSize);
 
-            // Clear existing paths
-            svg.innerHTML = '';
+            // Clear existing paths and add marker definitions
+            svg.innerHTML = `
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="var(--accent-gold)" />
+                    </marker>
+                    <marker id="arrowhead-highlighted" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="var(--accent-gold)" />
+                    </marker>
+                </defs>
+            `;
 
             // Draw lines for each mapping
             mappings.forEach(mapping => {
@@ -1606,40 +1609,33 @@
 
                     svg.appendChild(path);
                 });
+            });
 
-                // Draw internal link lines (normref that references another standard in the middle column)
-                if (ref.isInternal && ref.internalId) {
-                    const targetStandardEl = document.getElementById(`standard-${ref.internalId}`);
-                    if (!targetStandardEl) return;
+            // Draw internal reference lines between standards (with arrow)
+            internalReferences.forEach(ref => {
+                const sourceEl = document.getElementById(`standard-${ref.source}`);
+                const targetEl = document.getElementById(`standard-${ref.target}`);
+                if (!sourceEl || !targetEl) return;
 
-                    // Find the source standards that reference this internal ref
-                    ref.referencedBy.forEach(sourceId => {
-                        const sourceEl = document.getElementById(`standard-${sourceId}`);
-                        if (!sourceEl) return;
+                const sourceRect = sourceEl.getBoundingClientRect();
+                const targetRect = targetEl.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
 
-                        const sourceRect = sourceEl.getBoundingClientRect();
-                        const targetRect = targetStandardEl.getBoundingClientRect();
-                        const containerRect = container.getBoundingClientRect();
+                const x1 = sourceRect.right - containerRect.left - 10;
+                const y1 = sourceRect.top - containerRect.top + sourceRect.height / 2;
+                const x2 = targetRect.right - containerRect.left - 10;
+                const y2 = targetRect.top - containerRect.top + targetRect.height / 2;
 
-                        // Draw a curved line within the standards column
-                        const x1 = sourceRect.right - containerRect.left - 10;
-                        const y1 = sourceRect.top - containerRect.top + sourceRect.height / 2;
-                        const x2 = targetRect.right - containerRect.left - 10;
-                        const y2 = targetRect.top - containerRect.top + targetRect.height / 2;
+                const bulge = 40;
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                const d = `M ${x1} ${y1} C ${x1 + bulge} ${y1}, ${x2 + bulge} ${y2}, ${x2} ${y2}`;
+                path.setAttribute('d', d);
+                path.setAttribute('class', 'connection-line internal-link');
+                path.setAttribute('marker-end', 'url(#arrowhead)');
+                path.dataset.standard = ref.source;
+                path.dataset.internalTarget = ref.target;
 
-                        // Curve outward to the right of the standards column
-                        const bulge = 40;
-                        const midY = (y1 + y2) / 2;
-                        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                        const d = `M ${x1} ${y1} C ${x1 + bulge} ${y1}, ${x2 + bulge} ${y2}, ${x2} ${y2}`;
-                        path.setAttribute('d', d);
-                        path.setAttribute('class', 'connection-line internal-link');
-                        path.dataset.standard = sourceId;
-                        path.dataset.internalTarget = ref.internalId;
-
-                        svg.appendChild(path);
-                    });
-                }
+                svg.appendChild(path);
             });
         }
 
