@@ -1393,7 +1393,8 @@
                 code: 'ISO/IEC TS 12791:2024',
                 title: 'Information technology — Artificial intelligence — Treatment of unwanted bias in classification and regression machine learning tasks',
                 referencedBy: ['prEN18284'],
-                isInternal: false
+                isInternal: false,
+                substackLinks: []
             }
         ];
 
@@ -1511,10 +1512,24 @@
                 card.dataset.normrefId = ref.id;
                 card.style.animationDelay = `${0.1 * index}s`;
 
+                let substackLinksHtml = '';
+                if (ref.substackLinks && ref.substackLinks.length > 0) {
+                    substackLinksHtml = '<div class="substack-links">';
+                    ref.substackLinks.forEach(link => {
+                        substackLinksHtml += `
+                            <a href="${link.url}" target="_blank" class="substack-badge">
+                                <i class="fa-solid fa-newspaper"></i> ${link.label}
+                            </a>
+                        `;
+                    });
+                    substackLinksHtml += '</div>';
+                }
+
                 card.innerHTML = `
                     <div class="normref-code">${ref.code}</div>
                     <div class="normref-title">${ref.title}</div>
-                    <span class="normref-tag external">External standard</span>
+                    ${substackLinksHtml}
+                    <span class="normref-tag external">Parallel development</span>
                 `;
 
                 card.addEventListener('mouseenter', () => highlightConnections(ref.id, 'normref'));
