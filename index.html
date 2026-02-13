@@ -485,6 +485,9 @@
             color: var(--accent-teal);
             font-weight: 600;
             margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .normref-title {
@@ -1584,10 +1587,13 @@
                 }
 
                 card.innerHTML = `
-                    <div class="normref-code">${ref.code}</div>
+                    <div class="normref-code">
+                        ${ref.stage !== undefined ? `<div class="stage-indicator" style="background: ${getStageColor(ref.stage)};"></div>` : ''}
+                        ${ref.code}
+                    </div>
                     <div class="normref-title">${ref.title}</div>
                     ${substackLinksHtml}
-                    <span class="normref-tag external">Parallel development</span>
+                    <span class="normref-tag external">${ref.tag || 'Parallel development'}</span>
                 `;
 
                 card.addEventListener('mouseenter', () => highlightConnections(ref.id, 'normref'));
