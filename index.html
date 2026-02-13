@@ -934,7 +934,7 @@
             <div class="status-card">
                 <div class="status-value" id="total-standards">7</div>
                 <div class="status-label">Total Standards</div>
-                <div class="status-sublabel">CEN-CENELEC JTC 21</div>
+                <div class="status-sublabel">Including normative references</div>
             </div>
 
             <div class="status-card stage-10">
@@ -986,8 +986,7 @@
                     national bodies</li>
                 <li>Some standards will contain <a
                         href="https://adamleonsmith.substack.com/p/understanding-the-different-types">normative
-                        references</a>, these will be added once those standards reach the Enquiry stage and will
-                    increase the total number</li>
+                        references</a>, these often change during the standards development process</li>
                 <li>Always consult official EU AI Act text, the OJEU and published harmonised standards for compliance
                 </li>
             </ul>
@@ -1171,8 +1170,7 @@
                     <h3>Does the map include normative references between standards?</h3>
                 </div>
                 <div class="faq-answer">
-                    Some standards in this area are expected to include normative references to other standards, but those are incorporated into the mapping only once the referenced standards reach a sufficiently advanced stage, such as the enquiry stage. As a result, the mapping may not yet show every dependency or cross‑reference that will exist in the final harmonised standards set.
-                </div>
+                    Yes, but these often change during standards development.</div>
             </div>
 
             <div class="faq-item">
@@ -1396,16 +1394,18 @@
                 code: 'EN ISO/IEC TS 12791:2024',
                 title: 'Information technology — Artificial intelligence — Treatment of unwanted bias in classification and regression machine learning tasks',
                 referencedBy: ['prEN18284'],
-                isInternal: false,
-                substackLinks: []
+                tag: 'Parallel development',
+                substackLinks: [],
+                stage:60
             },
                         {
                 id: 'ISO-IEC-24970',
                 code: 'prEN ISO/IEC DIS 24970',
                 title: 'Artificial intelligence — AI system logging',
                 referencedBy: ['prEN18229-1'],
-                isInternal: false,
-                substackLinks: []
+                  tag: 'Parallel development',
+                substackLinks: [],
+                  stage:40
             },
               {
                 id: 'ISO-IEC-12792',
@@ -1413,47 +1413,53 @@
                 title: 'Information technology — Artificial intelligence (AI) — Transparency taxonomy of AI systems',
                 referencedBy: ['prEN18229-1'],
                 isInternal: false,
-                substackLinks: []
+                substackLinks: [],
+                stage:60
             },
                      {
                 id: 'ISO-IEC-24029-2',
                 code: 'EN ISO/IEC 24029-2:2023',
                 title: 'Artificial intelligence (AI) — Assessment of the robustness of neural networks — Part 2: Methodology for the use of formal methods',
                 referencedBy: ['prEN18229-1'],
-                isInternal: false,
-                substackLinks: []
+                  tag: 'Parallel development',
+                substackLinks: [],
+                stage:60
                      },
                        {
                 id: 'ISO-IEC-24029-3',
                 code: 'EN ISO/IEC DIS 24029-3:—',
                 title: 'Artificial intelligence (AI) — Assessment of the robustness of neural networks — Part 3: Methodology for the use of statistical methods',
                 referencedBy: ['prEN18229-1'],
-                isInternal: false,
-                substackLinks: []
+                  tag: 'Parallel development',
+                substackLinks: [],
+                stage:40
                      },
                            {
                 id: 'ISO-IEC-4213',
                 code: 'ISO/IEC CD 4213:— (2nd edition)',
                 title: 'Artificial intelligence — Performance measurement for AI classification, regression, clustering and recommendation tasks',
                 referencedBy: ['prEN18229-2'],
-                isInternal: true,
-                substackLinks: []
+                  tag: 'ISO/IEC only',
+                substackLinks: [],
+                stage:20
                      },
                          {
                 id: 'ISO-IEC-23282',
                 code: 'prEN ISO/IEC CD 23282:— (2nd edition)',
                 title: 'Artificial Intelligence — Evaluation methods for accurate natural language processing systems',
                 referencedBy: ['prEN18229-2'],
-                isInternal: false,
-                substackLinks: []
+                  tag: 'Parallel development',
+                substackLinks: [],
+                stage:20
                      },
                             {
                 id: 'EN-18281',
                 code: 'prEN 18281:—',
-                title: 'Artificial Intelligence — Evaluation methods for accurate natural language processing systems',
+                title: 'Artificial Intelligence — Evaluation methods for accurate computer vision systems',
                 referencedBy: ['prEN18229-2'],
-                isInternal: false,
-                substackLinks: []
+                  tag: 'CEN-CENELEC only',
+                substackLinks: [],
+                  stage:20
                      },
             
         ];
