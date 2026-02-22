@@ -1062,6 +1062,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                         <tr>
+                        <td class="date-col">2026-02-22</td>
+                        <td class="standard-col">Normative references</td>
+                        <td>
+                            <span class="change-type mapping">Additional information</span>
+                            Corrected location of prEN 18283 based on the latest information
+                        </td>
+                    </tr>
+                
                      <tr>
                         <td class="date-col">2026-02-13</td>
                         <td class="standard-col">Normative references</td>
@@ -1246,7 +1255,7 @@
         // Configuration: Define which articles map to which standards
         const mappings = [
             { article: 'art9', standards: ['prEN18228'] },
-            { article: 'art10', standards: ['prEN18284', 'prEN18283'] },
+            { article: 'art10', standards: ['prEN18284'] },
             { article: 'art12', standards: ['prEN18229-1'] },
             { article: 'art13', standards: ['prEN18229-1'] },
             { article: 'art14', standards: ['prEN18229-1'] },
@@ -1344,14 +1353,6 @@
                 title: 'Quality and governance of datasets in AI',
                 stage: 10,
                 scope: 'This document provides guidance and requirements for the creation and management of datasets in the context of AI, including design choices, data collection and preparation. It defines metrics and methodology to assess dataset quality characteristics such as representativeness, relevance, completeness and correctness. This encompasses consideration of any data, including training data, validation data and test data, and to be used in conjunction with any AI technology.',
-                substackLinks: []
-            },
-            {
-                id: 'prEN18283',
-                code: 'prEN 18283',
-                title: 'Concepts, measures and requirements for managing bias in AI systems',
-                stage: 10,
-                scope: 'This document defines concepts, measures and requirements for assessment and treatment of bias in AI systems. This includes bias unwanted by the AI Provider and AI Deployer according to their specification of the AI system, in the context of the AI Act. This encompasses consideration of data bias including any data used to build or assess the AI system, but also system or model bias that can result from algorithmic factors, such as algorithm design choices.',
                 substackLinks: []
             },
             {
@@ -1469,13 +1470,23 @@
                 substackLinks: [],
                   stage:20
                      },
+                     {
+                id: 'EN-18283',
+                code: 'prEN 18283:—',
+                title: 'Concepts, measures and requirements for managing bias in AI systems',
+                referencedBy: ['prEN18284'],
+                stage: 10,
+                scope: 'This document defines concepts, measures and requirements for assessment and treatment of bias in AI systems. This includes bias unwanted by the AI Provider and AI Deployer according to their specification of the AI system, in the context of the AI Act. This encompasses consideration of data bias including any data used to build or assess the AI system, but also system or model bias that can result from algorithmic factors, such as algorithm design choices.',
+                substackLinks: []
+            },
+            
             
         ];
 
         // Internal normative references between standards in the middle column
         const internalReferences = [
             { source: 'prEN18282', target: 'prEN18286' },
-             { source: 'prEN18284', target: 'prEN18283' }
+             
         ];
 
         function getStageColor(stage) {
