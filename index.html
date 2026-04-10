@@ -734,24 +734,24 @@
 
         .status-dashboard {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.75rem;
             margin-bottom: 3rem;
             animation: fadeIn 0.8s ease-out 0.5s both;
         }
 
         .status-card {
             background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
+            border-radius: 10px;
+            padding: 0.85rem 0.75rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             border-left: 4px solid var(--accent-gold);
             transition: all 0.3s ease;
         }
 
         .status-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
         }
 
         .status-card.stage-10 {
@@ -766,39 +766,52 @@
             border-left-color: var(--stage-40);
         }
 
+        .status-card.stage-50 {
+            border-left-color: var(--stage-50);
+        }
+
         .status-card.stage-60 {
             border-left-color: var(--stage-60);
         }
 
         .status-value {
             font-family: 'Fraunces', serif;
-            font-size: 2.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
             color: var(--primary-dark);
             line-height: 1;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
 
         .status-label {
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
             font-weight: 500;
+            line-height: 1.3;
         }
 
         .status-sublabel {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: var(--accent-blue);
-            margin-top: 0.25rem;
+            margin-top: 0.2rem;
+            line-height: 1.3;
+        }
+
+        @media (max-width: 1100px) {
+            .status-dashboard {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.75rem;
+            }
         }
 
         @media (max-width: 968px) {
             .status-dashboard {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
+                gap: 0.75rem;
             }
 
             .status-value {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
         }
 
@@ -952,9 +965,16 @@
 
             <div class="status-card stage-40">
                 <div class="status-value" id="stage-40-count">1</div>
-                <div class="status-label">Stage 40-50.99</div>
-                <div class="status-sublabel">Enquiry / DIS Draft</div>
+                <div class="status-label">Stage 40-40.99</div>
+                <div class="status-sublabel">Enquiry / DIS</div>
             </div>
+
+                        <div class="status-card stage-50">
+                <div class="status-value" id="stage-50-count">1</div>
+                <div class="status-label">Stage 50-50.99</div>
+                <div class="status-sublabel">Formal Vote / FDIS</div>
+            </div>
+
 
             <div class="status-card stage-60">
                 <div class="status-value" id="stage-60-count">0</div>
@@ -1836,12 +1856,13 @@
 
         // Calculate and update dashboard stats
         function updateDashboard() {
-            const stageCounts = { 10: 0, 20: 0, 40: 0, 60: 0 };
+            const stageCounts = { 10: 0, 20: 0, 40: 0, 50: 0, 60: 0 };
 
             const allStandards = [...standards, ...normativeReferences.filter(r => r.stage !== undefined)];
 
             allStandards.forEach(standard => {
                 if (standard.stage >= 60) stageCounts[60]++;
+                else if (standard.stage >= 50) stageCounts[50]++;
                 else if (standard.stage >= 40) stageCounts[40]++;
                 else if (standard.stage >= 20) stageCounts[20]++;
                 else if (standard.stage >= 10) stageCounts[10]++;
@@ -1851,7 +1872,9 @@
             document.getElementById('stage-10-count').textContent = stageCounts[10];
             document.getElementById('stage-20-count').textContent = stageCounts[20];
             document.getElementById('stage-40-count').textContent = stageCounts[40];
+            document.getElementById('stage-50-count').textContent = stageCounts[50];
             document.getElementById('stage-60-count').textContent = stageCounts[60];
+            document.getElementById('stage-cited-count').textContent = 0;
         }
 
         // FAQ accordion functionality
