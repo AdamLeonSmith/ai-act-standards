@@ -429,16 +429,17 @@
         }
 
         .connection-line.internal-link {
-            stroke: var(--accent-gold);
-            stroke-dasharray: 6 4;
-            opacity: 0.5;
+            stroke: #f97316;
+            stroke-width: 2.5;
+            opacity: 0.8;
         }
 
         .connection-line.internal-link.highlighted {
-            stroke: var(--accent-gold);
-            stroke-width: 3;
+            stroke: #f97316;
+            stroke-width: 3.5;
             opacity: 1;
         }
+
 
         .normref-card {
             background: var(--card-bg);
@@ -1689,11 +1690,11 @@
             // Clear existing paths and add marker definitions
             svg.innerHTML = `
                 <defs>
-                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                        <polygon points="0 0, 10 3.5, 0 7" fill="var(--accent-gold)" />
+                    <marker id="arrowhead" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+                        <polygon points="0 0, 12 4, 0 8" fill="#f97316" />
                     </marker>
-                    <marker id="arrowhead-highlighted" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                        <polygon points="0 0, 10 3.5, 0 7" fill="var(--accent-gold)" />
+                    <marker id="arrowhead-highlighted" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+                        <polygon points="0 0, 12 4, 0 8" fill="#f97316" />
                     </marker>
                 </defs>
             `;
@@ -1775,7 +1776,7 @@
                 const x2 = targetRect.right - containerRect.left - 10;
                 const y2 = targetRect.top - containerRect.top + targetRect.height / 2;
 
-                const bulge = 40;
+                const bulge = 70;
                 const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
                 const d = `M ${x1} ${y1} C ${x1 + bulge} ${y1}, ${x2 + bulge} ${y2}, ${x2} ${y2}`;
                 path.setAttribute('d', d);
