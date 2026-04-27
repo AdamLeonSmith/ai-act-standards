@@ -1083,6 +1083,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                     <tr>
+                        <td class="date-col">2026-04-27</td>
+                        <td class="standard-col">prEN 18229</td>
+                        <td>
+                            <span class="change-type mapping">Project split</span>
+                            Reflecting the split of 18229-1 into two parts, now -1 and -3
+                        </td>
+                    </tr>
+                     <tr>
                     <tr>
                         <td class="date-col">2026-03-26</td>
                         <td class="standard-col">prEN 18283</td>
@@ -1302,8 +1311,8 @@
             { article: 'art9', standards: ['prEN18228'] },
             { article: 'art10', standards: ['prEN18284'] },
             { article: 'art12', standards: ['prEN18229-1'] },
-            { article: 'art13', standards: ['prEN18229-1'] },
-            { article: 'art14', standards: ['prEN18229-1'] },
+            { article: 'art13', standards: ['prEN18229-3'] },
+            { article: 'art14', standards: ['prEN18229-3'] },
             { article: 'art15', standards: ['prEN18229-2', 'prEN18282'] },
             { article: 'art17', standards: ['prEN18286'] },
             { article: 'art72', standards: ['prEN18286'] }
@@ -1403,9 +1412,9 @@
             {
                 id: 'prEN18229-1',
                 code: 'prEN 18229-1',
-                title: 'AI trustworthiness framework – Part 1: Logging, transparency and human oversight',
+                title: 'AI trustworthiness framework – Part 1: Logging',
                 stage: 20,
-                scope: 'This document provides terminology, concepts, requirements, and guidance for transparency, logging, and human oversight of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
+                scope: 'This document provides terminology, concepts, requirements, and guidance for logging of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
                 substackLinks: [
 
                 ]
@@ -1417,6 +1426,16 @@
                 stage: 20,
                 scope: 'This document provides terminology, concepts, requirements, and guidance for the accuracy and robustness of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
                 substackLinks: []
+            },
+               {
+                id: 'prEN18229-3',
+                code: 'prEN 18229-3',
+                title: 'AI trustworthiness framework – Part 3: Transparency and human oversight',
+                stage: 20,
+                scope: 'This document provides terminology, concepts, requirements, and guidance for transparency and human oversight of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
+                substackLinks: [
+
+                ]
             },
             {
                 id: 'prEN18282',
@@ -1474,7 +1493,7 @@
                 id: 'ISO-IEC-12792',
                 code: 'EN ISO/IEC 12792:2025',
                 title: 'Information technology — Artificial intelligence (AI) — Transparency taxonomy of AI systems',
-                referencedBy: ['prEN18229-1'],
+                referencedBy: ['prEN18229-3'],
                 isInternal: false,
                 substackLinks: [{label: 'Analysis', url: 'https://adamleonsmith.substack.com/p/using-en-isoiec-12792-to-help-with'}],
                 stage:60
