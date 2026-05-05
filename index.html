@@ -516,6 +516,42 @@
             color: var(--accent-teal);
         }
 
+        .normref-scope {
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: var(--primary-dark);
+            color: var(--text-light);
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            white-space: normal;
+            width: max-content;
+            max-width: 400px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            line-height: 1.5;
+        }
+
+        .normref-scope::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 8px solid transparent;
+            border-top-color: var(--primary-dark);
+        }
+
+        .normref-card:hover .normref-scope {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
         .caveats-box {
             background: #fff3cd;
             border-left: 4px solid #d97706;
@@ -711,7 +747,8 @@
                 gap: 1rem;
             }
 
-            .standard-scope {
+            .standard-scope,
+            .normref-scope {
                 max-width: 280px;
             }
         }
@@ -1083,6 +1120,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                     <tr>
+                        <td class="date-col">2026-05-05</td>
+                        <td class="standard-col">prEN 18229</td>
+                        <td>
+                            <span class="change-type mapping">Enhancement</span>
+                           Added on-hover scopes for normative references
+                        </td>
+                    </tr>
                      <tr>
                         <td class="date-col">2026-04-27</td>
                         <td class="standard-col">prEN 18229</td>
@@ -1468,6 +1513,7 @@
                 title: 'Information technology — Artificial intelligence — Treatment of unwanted bias in classification and regression machine learning tasks',
                 referencedBy: ['prEN18284'],
                 tag: 'Parallel development',
+                scope: 'This document describes how to address unwanted bias in AI systems that use machine learning to conduct classification and regression tasks. This document provides mitigation techniques that can be applied throughout the AI system life cycle in order to treat unwanted bias. This document is applicable to all types and sizes of organization.',
                 substackLinks: [],
                 stage:60
             },
@@ -1486,6 +1532,7 @@
                 title: 'Artificial intelligence — AI system logging',
                 referencedBy: ['prEN18229-1'],
                   tag: 'Parallel development',
+                  scope: 'This document describes common capabilities, requirements and a supporting information model for logging of events in AI systems. This document is designed to be used with a risk management system.',
                 substackLinks: [],
                   stage:40
             },
@@ -1495,6 +1542,7 @@
                 title: 'Information technology — Artificial intelligence (AI) — Transparency taxonomy of AI systems',
                 referencedBy: ['prEN18229-3'],
                 isInternal: false,
+                scope: 'This document specifies a taxonomy of information elements to assist AI stakeholders with identifying and addressing the needs for transparency of AI systems. The document describes the semantics of the information elements and their relevance to the various objectives of different stakeholders. This document is applicable to any kind of organization and application involving an AI system.',
                 substackLinks: [{label: 'Analysis', url: 'https://adamleonsmith.substack.com/p/using-en-isoiec-12792-to-help-with'}],
                 stage:60
             },
@@ -1512,6 +1560,7 @@
                 code: 'ISO/IEC DIS 24029-3:—',
                 title: 'Artificial intelligence (AI) — Assessment of the robustness of neural networks — Part 3: Methodology for the use of statistical methods',
                 referencedBy: ['prEN18229-2'],
+                scope:'This document provides methodology for the use of formal methods to assess robustness properties of neural networks. The document focuses on how to select, apply and manage formal methods to prove robustness properties.',
                   tag: 'ISO/IEC only',
                 substackLinks: [],
                 stage:40
@@ -1522,6 +1571,7 @@
                 title: 'Artificial intelligence — Performance measurement for AI classification, regression, clustering and recommendation tasks',
                 referencedBy: ['prEN18229-2'],
                   tag: 'ISO/IEC only',
+                  scope:'This document specifies methodologies for measuring the performance of AI models for classification, regression, clustering and recommendation tasks.',
                 substackLinks: [],
                 stage:20
                      },
@@ -1529,6 +1579,7 @@
                 id: 'ISO-IEC-23282',
                 code: 'prEN ISO/IEC CD 23282:—',
                 title: 'Artificial Intelligence — Evaluation methods for accurate natural language processing systems',
+                scope:'This document specifies the evaluation of natural language processing systems, in the sense of measuring the quality of a system’s results to assess its functional suitability. It provides a definition of evaluation methods for those systems, together with guidance on how to select, implement and interpret those evaluation methods. This document covers quantitative metrics as well as other evaluation methods. It includes requirements on the implementation of the described metrics, and further requirements on the technical resources involved in the evaluation process.',
                 referencedBy: ['prEN18229-2'],
                   tag: 'Parallel development',
                 substackLinks: [],
@@ -1539,6 +1590,7 @@
                 code: 'prEN 18281:—',
                 title: 'Artificial Intelligence — Evaluation methods for accurate computer vision systems',
                 referencedBy: ['prEN18229-2'],
+                scope:'This document specifies the evaluation of computer vision systems, in the sense of measuring the quality of a system’s results to assess its functional suitability. It provides a definition of evaluation methods for those systems, together with guidance on how to select, implement and interpret those evaluation methods. This document covers quantitative metrics as well as other evaluation methods. It includes requirements on the implementation of the described metrics, and further requirements on the technical resources involved in the evaluation process.',
                   tag: 'CEN-CENELEC only',
                 substackLinks: [{label: 'Analysis', url: 'https://open.substack.com/pub/adamleonsmith/p/pren-18281-europes-new-standard-for?r=5t4jd8&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true'}],
                   stage:40
@@ -1684,6 +1736,7 @@
                     <div class="normref-title">${ref.title}</div>
                     ${substackLinksHtml}
                     <span class="normref-tag external">${ref.tag || 'Parallel development'}</span>
+                    ${ref.scope ? `<div class="normref-scope">${ref.scope}</div>` : ''}
                 `;
 
                 card.addEventListener('mouseenter', () => highlightConnections(ref.id, 'normref'));
