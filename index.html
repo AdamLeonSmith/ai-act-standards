@@ -10,7 +10,7 @@
     <meta name="description"
         content="Interactive mapping of CEN-CENELEC harmonised standards to EU AI Act compliance requirements. Explore connections between articles and standards with detailed scope descriptions.">
     <meta name="keywords"
-        content="AI Act, EU AI Act, harmonised standards, CEN-CENELEC, prEN 18286, AI compliance, AI Act standards">
+        content="AI Act, EU AI Act, harmonised standards, CEN-CENELEC, FprEN 18286, AI compliance, AI Act standards">
     <meta name="author" content="Adam Leon Smith">
 
     <!-- Open Graph for social sharing -->
@@ -1121,6 +1121,14 @@
                 </thead>
                 <tbody>
                      <tr>
+                        <td class="date-col">2026-05-07</td>
+                        <td class="standard-col">prEN 18229</td>
+                        <td>
+                            <span class="change-type mapping">Stage Progression</span>
+                           Moved prEN 18228 and 18282 to Stage 40 and 18286 to 50.
+                        </td>
+                    </tr>
+                     <tr>
                         <td class="date-col">2026-05-05</td>
                         <td class="standard-col">prEN 18229</td>
                         <td>
@@ -1305,7 +1313,7 @@
                     <h3>How does this mapping relate to the AI Act's requirements?</h3>
                 </div>
                 <div class="faq-answer">
-                    <p>This mapping shows the <strong>intended coverage</strong> of standards being developed by CEN-CENELEC JTC 21. The standards are designed to address specific articles of the AI Act, particularly Chapter III Section 2 requirements for high-risk AI systems (Articles 9-15) plus the quality management system (Article 17) and post-market monitoring (Article 72). Each standard's scope has been carefully designed to align with these legal requirements.</p>
+                    <p>This mapping shows the <strong>intended coverage</strong> of standards being developed by CEN-CENELEC JTC 21. The standards are designed to address specific articles of the AI Act, particularly Chapter III Section 2 requirements for high-risk AI systems (Articles 9-15) plus the quality management system (Article 17). Each standard's scope has been carefully designed to align with these legal requirements.</p>
                 </div>
             </div>
 
@@ -1359,8 +1367,7 @@
             { article: 'art13', standards: ['prEN18229-3'] },
             { article: 'art14', standards: ['prEN18229-3'] },
             { article: 'art15', standards: ['prEN18229-2', 'prEN18282'] },
-            { article: 'art17', standards: ['prEN18286'] },
-            { article: 'art72', standards: ['prEN18286'] }
+            { article: 'art17', standards: ['prEN18286'] }
         ];
 
         // AI Act articles configuration
@@ -1425,14 +1432,6 @@
                 substackLinks: [
 
                 ]
-            },
-            {
-                id: 'art72',
-                title: 'Art 72 - Post-Market Monitoring by Providers and Post-Market Monitoring Plan for High-Risk AI Systems',
-                icon: 'fa-chart-line',
-                color: '#4f46e5',
-                aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72/',
-                substackLinks: []
             }
         ];
 
@@ -1442,9 +1441,9 @@
                 id: 'prEN18228',
                 code: 'prEN 18228',
                 title: 'AI Risk Management',
-                stage: 20,
+                stage: 40,
                 scope: 'This document specifies requirements and provides guidance for risk management of AI systems. It specifies terminology, principles and a process for risk management. The process described in this document intends to assist providers of AI systems to identify the hazards associated with the AI systems, to estimate and evaluate the associated risks, to control these risks, and to monitor the effectiveness of the controls. The process described in this document applies to risks to health, safety and fundamental rights associated with an AI system. The process described in this document is applied throughout the life cycle of the AI system. This document requires providers to establish objective criteria for risk acceptability but does not specify acceptable risk levels. This document is intended for use by organizations providing AI systems, regardless of their size, nature or location. This document is not intended for managing risk faced by organizations. This document is intended to support the organization in meeting applicable regulatory requirements.',
-                substackLinks: []
+                substackLinks: [{label:'Analysis', url:'https://adamleonsmith.substack.com/p/pren-18228-heads-to-enquiry-the-product'}],
             },
             {
                 id: 'prEN18284',
@@ -1486,17 +1485,16 @@
                 id: 'prEN18282',
                 code: 'prEN 18282',
                 title: 'Cybersecurity specifications for AI systems',
-                stage: 20,
+                stage: 40,
                 scope: 'This document addresses organizational and technical solutions aimed at ensuring the cybersecurity of high-risk AI systems over the lifecycle, appropriate to the relevant circumstances and the risks. The technical solutions to address AI specific vulnerabilities include, where appropriate, measures to prevent, detect, respond to, resolve and control for attacks trying to manipulate the training dataset (data poisoning), or pre-trained components used in training (model poisoning), inputs designed to cause the model to make a mistake (adversarial examples or model evasion), confidentiality attacks or model flaws. This document provides objective criteria to enable decisions on whether a given technical or organizational solution adequately achieves a given vulnerability-related goal.',
-                substackLinks: [
+                substackLinks: [{label:'Analysis', url:'https://open.substack.com/pub/adamleonsmith/p/pren-18282-heads-to-enquiry-cybersecurity'}],
 
-                ]
             },
             {
                 id: 'prEN18286',
-                code: 'prEN 18286',
+                code: 'FprEN 18286',
                 title: 'Quality management system for EU AI Act regulatory purposes',
-                stage: 40,
+                stage: 50,
                 scope: 'This document specifies the requirements and provides guidance for the definition, implementation and maintenance of a quality management system for organizations that provide AI systems. This document is intended to support the organization in meeting applicable regulatory requirements. It is primarily intended for organizations placing on the market or putting into service high-risk AI systems and is not specific to any particular sector.',
                 substackLinks: [
                     { label: 'Structural analysis', url: 'https://adamleonsmith.substack.com/p/the-distinctive-structure-of-pren' },
