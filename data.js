@@ -94,7 +94,7 @@ const standards = [
         id: 'prEN18229-1',
         code: 'prEN 18229-1',
         title: 'AI trustworthiness framework – Part 1: Logging',
-        stage: 20,
+        stage: 40,
         scope: 'This document provides terminology, concepts, requirements, and guidance for logging of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
         substackLinks: []
     },
@@ -235,8 +235,14 @@ const internalReferences = [
 
 // Changelog entries (newest first)
 const changelog = [
+     {
+        date: '2026-05-19',
+        standard: 'prEN 18229-1',
+        type: 'Stage Progression',
+        description: 'Start of Enquiry'
+    },
     {
-        date: '2026-05-23',
+        date: '2026-05-13',
         standard: 'prEN 18228',
         type: 'Internal references',
         description: 'Added internal normative reference from 18228 to 18229-1 per Enquiry text'
