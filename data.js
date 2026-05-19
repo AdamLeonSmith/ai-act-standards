@@ -158,13 +158,13 @@ const normativeReferences = [
     },
     {
         id: 'ISO-IEC-24970',
-        code: 'prEN ISO/IEC DIS 24970',
+        code: 'FprEN ISO/IEC FDIS 24970',
         title: 'Artificial intelligence — AI system logging',
         referencedBy: ['prEN18229-1'],
         tag: 'Parallel development',
         scope: 'This document describes common capabilities, requirements and a supporting information model for logging of events in AI systems. This document is designed to be used with a risk management system.',
         substackLinks: [],
-        stage: 40
+        stage: 50
     },
     {
         id: 'ISO-IEC-12792',
@@ -235,7 +235,13 @@ const internalReferences = [
 
 // Changelog entries (newest first)
 const changelog = [
-     {
+    {
+        date: '2026-05-19',
+        standard: 'ISO/IEC 24970',
+        type: 'Stage Progression',
+        description: 'Start of FDIS/Formal Vote'
+    }, 
+    {
         date: '2026-05-19',
         standard: 'prEN 18229-1',
         type: 'Stage Progression',
