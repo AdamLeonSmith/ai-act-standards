@@ -96,7 +96,7 @@ const standards = [
         title: 'AI trustworthiness framework – Part 1: Logging',
         stage: 40,
         scope: 'This document provides terminology, concepts, requirements, and guidance for logging of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
-        substackLinks: []
+        substackLinks: [{label:'Analysis', url:'https://open.substack.com/pub/adamleonsmith/p/two-standards-one-architecture-fpren'}]
     },
     {
         id: 'prEN18229-2',
@@ -163,7 +163,7 @@ const normativeReferences = [
         referencedBy: ['prEN18229-1'],
         tag: 'Parallel development',
         scope: 'This document describes common capabilities, requirements and a supporting information model for logging of events in AI systems. This document is designed to be used with a risk management system.',
-        substackLinks: [],
+        substackLinks: [{label:'Analysis', url:'https://open.substack.com/pub/adamleonsmith/p/two-standards-one-architecture-fpren'}],
         stage: 50
     },
     {
@@ -197,13 +197,13 @@ const normativeReferences = [
     },
     {
         id: 'ISO-IEC-4213',
-        code: 'ISO/IEC CD 4213:— (2nd edition)',
+        code: 'ISO/IEC DIS 4213:— (2nd edition)',
         title: 'Artificial intelligence — Performance measurement for AI classification, regression, clustering and recommendation tasks',
         referencedBy: ['prEN18229-2'],
         tag: 'ISO/IEC only',
         scope: 'This document specifies methodologies for measuring the performance of AI models for classification, regression, clustering and recommendation tasks.',
         substackLinks: [],
-        stage: 20
+        stage: 40
     },
     {
         id: 'ISO-IEC-23282',
@@ -235,6 +235,12 @@ const internalReferences = [
 
 // Changelog entries (newest first)
 const changelog = [
+    {
+        date: '2026-05-30',
+        standard: 'ISO/IEC 4213 (2nd edition)',
+        type: 'Stage Progression',
+        description: 'Start of DIS'
+    }, 
     {
         date: '2026-05-19',
         standard: 'ISO/IEC 24970',
