@@ -231,6 +231,8 @@ const normativeReferences = [
 const internalReferences = [
     { source: 'prEN18282', target: 'prEN18286' },
     { source: 'prEN18228', target: 'prEN18229-1' },
+      { source: 'prEN18229-1', target: 'prEN18229' },
+      { source: 'prEN18229-1', target: 'prEN18286' },
 ];
 
 // Changelog entries (newest first)
