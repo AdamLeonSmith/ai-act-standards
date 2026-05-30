@@ -2,6 +2,7 @@
 const mappings = [
     { article: 'art9', standards: ['prEN18228'] },
     { article: 'art10', standards: ['prEN18284'] },
+    { article: 'art11', standards: ['prEN18286','prEN18229-1'] },
     { article: 'art12', standards: ['prEN18229-1'] },
     { article: 'art13', standards: ['prEN18229-3'] },
     { article: 'art14', standards: ['prEN18229-3'] },
@@ -25,6 +26,14 @@ const articles = [
         icon: 'fa-database',
         color: '#7c3aed',
         aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-10/',
+        substackLinks: []
+    },
+    {
+        id: 'art11',
+        title: 'Art 11 – Technical Documentation',
+        icon: 'fa-file-lines',
+        color: '#0e7490',
+        aiActUrl: 'https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-11/',
         substackLinks: []
     },
     {
@@ -237,6 +246,13 @@ const internalReferences = [
 
 // Changelog entries (newest first)
 const changelog = [
+    {
+        date: '2026-05-30',
+        standard: 'Multiple',
+        type: 'Articles',
+        description: 'Added Article 11 based on latest draft ZAs'
+    }, 
+
     {
         date: '2026-05-30',
         standard: 'ISO/IEC 4213 (2nd edition)',
