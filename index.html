@@ -142,6 +142,20 @@
             border-radius: 50%;
         }
 
+        .legend-separator {
+            width: 1px;
+            height: 28px;
+            background: var(--card-border);
+            margin: 0 0.25rem;
+            flex-shrink: 0;
+        }
+
+        .legend-line-icon {
+            width: 36px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
         .legend-tooltip {
             position: absolute;
             bottom: 120%;
@@ -1076,6 +1090,35 @@
                 <div class="legend-dot" style="background: var(--stage-60);"></div>
                 <span>Stage 60+</span>
                 <div class="legend-tooltip">Publication stage</div>
+            </div>
+
+            <div class="legend-separator"></div>
+
+            <div class="legend-item">
+                <svg class="legend-line-icon" viewBox="0 0 36 14" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="0" y1="7" x2="36" y2="7" stroke="#d4af37" stroke-width="2"/>
+                </svg>
+                <span>Annex Z mapping</span>
+                <div class="legend-tooltip">Article maps to primary standard via Annex Z citation</div>
+            </div>
+            <div class="legend-item">
+                <svg class="legend-line-icon" viewBox="0 0 36 14" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <marker id="legend-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                            <polygon points="0 0, 8 3, 0 6" fill="#f97316"/>
+                        </marker>
+                    </defs>
+                    <line x1="0" y1="7" x2="28" y2="7" stroke="#f97316" stroke-width="2.5" marker-end="url(#legend-arrow)"/>
+                </svg>
+                <span>Normative ref (primary)</span>
+                <div class="legend-tooltip">Normative reference between primary projects</div>
+            </div>
+            <div class="legend-item">
+                <svg class="legend-line-icon" viewBox="0 0 36 14" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="0" y1="7" x2="36" y2="7" stroke="#2c9a9e" stroke-width="2"/>
+                </svg>
+                <span>Normative ref (other)</span>
+                <div class="legend-tooltip">Normative reference to other (non-primary) projects</div>
             </div>
         </div>
 
