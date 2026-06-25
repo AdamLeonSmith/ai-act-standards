@@ -201,26 +201,7 @@ const normativeReferences = [
         substackLinks: [{ label: 'Analysis', url: 'https://adamleonsmith.substack.com/p/using-en-isoiec-12792-to-help-with' }],
         stage: 60
     },
-    {
-        id: 'ISO-IEC-24029-2',
-        code: 'EN ISO/IEC 24029-2:2023',
-        title: 'Artificial intelligence (AI) — Assessment of the robustness of neural networks — Part 2: Methodology for the use of formal methods',
-        referencedBy: ['prEN18229-5'],
-        tag: 'Parallel development',
-        substackLinks: [],
-        stage: 60
-    },
-    {
-        id: 'ISO-IEC-24029-3',
-        code: 'ISO/IEC DIS 24029-3:—',
-        title: 'Artificial intelligence (AI) — Assessment of the robustness of neural networks — Part 3: Methodology for the use of statistical methods',
-        referencedBy: ['prEN18229-5'],
-        scope: 'This document provides methodology for the use of formal methods to assess robustness properties of neural networks. The document focuses on how to select, apply and manage formal methods to prove robustness properties.',
-        tag: 'ISO/IEC only',
-        substackLinks: [],
-        stage: 40
-    },
-    {
+        {
         id: 'ISO-IEC-4213',
         code: 'ISO/IEC DIS 4213:— (2nd edition)',
         title: 'Artificial intelligence — Performance measurement for AI classification, regression, clustering and recommendation tasks',
@@ -240,6 +221,26 @@ const normativeReferences = [
         substackLinks: [],
         stage: 20
     },
+    {
+        id: 'ISO-IEC-24029-2',
+        code: 'EN ISO/IEC 24029-2:2023',
+        title: 'Artificial intelligence (AI) — Assessment of the robustness of neural networks — Part 2: Methodology for the use of formal methods',
+        referencedBy: ['prEN18229-5'],
+        tag: 'Parallel development',
+        substackLinks: [],
+        stage: 60
+    },
+    {
+        id: 'ISO-IEC-24029-3',
+        code: 'ISO/IEC DIS 24029-3:—',
+        title: 'Artificial intelligence (AI) — Assessment of the robustness of neural networks — Part 3: Methodology for the use of statistical methods',
+        referencedBy: ['prEN18229-5'],
+        scope: 'This document provides methodology for the use of formal methods to assess robustness properties of neural networks. The document focuses on how to select, apply and manage formal methods to prove robustness properties.',
+        tag: 'ISO/IEC only',
+        substackLinks: [],
+        stage: 40
+    },
+
     {
         id: 'EN-18281',
         code: 'prEN 18281:—',
