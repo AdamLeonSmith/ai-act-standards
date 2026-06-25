@@ -195,7 +195,7 @@ const normativeReferences = [
         id: 'ISO-IEC-12792',
         code: 'EN ISO/IEC 12792:2025',
         title: 'Information technology — Artificial intelligence (AI) — Transparency taxonomy of AI systems',
-        referencedBy: ['prEN18229-3'],
+        referencedBy: ['prEN18229-2'],
         isInternal: false,
         scope: 'This document specifies a taxonomy of information elements to assist AI stakeholders with identifying and addressing the needs for transparency of AI systems. The document describes the semantics of the information elements and their relevance to the various objectives of different stakeholders. This document is applicable to any kind of organization and application involving an AI system.',
         substackLinks: [{ label: 'Analysis', url: 'https://adamleonsmith.substack.com/p/using-en-isoiec-12792-to-help-with' }],
@@ -205,7 +205,7 @@ const normativeReferences = [
         id: 'ISO-IEC-24029-2',
         code: 'EN ISO/IEC 24029-2:2023',
         title: 'Artificial intelligence (AI) — Assessment of the robustness of neural networks — Part 2: Methodology for the use of formal methods',
-        referencedBy: ['prEN18229-2'],
+        referencedBy: ['prEN18229-5'],
         tag: 'Parallel development',
         substackLinks: [],
         stage: 60
@@ -214,7 +214,7 @@ const normativeReferences = [
         id: 'ISO-IEC-24029-3',
         code: 'ISO/IEC DIS 24029-3:—',
         title: 'Artificial intelligence (AI) — Assessment of the robustness of neural networks — Part 3: Methodology for the use of statistical methods',
-        referencedBy: ['prEN18229-2'],
+        referencedBy: ['prEN18229-5'],
         scope: 'This document provides methodology for the use of formal methods to assess robustness properties of neural networks. The document focuses on how to select, apply and manage formal methods to prove robustness properties.',
         tag: 'ISO/IEC only',
         substackLinks: [],
@@ -224,7 +224,7 @@ const normativeReferences = [
         id: 'ISO-IEC-4213',
         code: 'ISO/IEC DIS 4213:— (2nd edition)',
         title: 'Artificial intelligence — Performance measurement for AI classification, regression, clustering and recommendation tasks',
-        referencedBy: ['prEN18229-2'],
+        referencedBy: ['prEN18229-4'],
         tag: 'ISO/IEC only',
         scope: 'This document specifies methodologies for measuring the performance of AI models for classification, regression, clustering and recommendation tasks.',
         substackLinks: [],
@@ -235,7 +235,7 @@ const normativeReferences = [
         code: 'prEN ISO/IEC CD 23282:—',
         title: 'Artificial Intelligence — Evaluation methods for accurate natural language processing systems',
         scope: 'This document specifies the evaluation of natural language processing systems, in the sense of measuring the quality of a system’s results to assess its functional suitability. It provides a definition of evaluation methods for those systems, together with guidance on how to select, implement and interpret those evaluation methods. This document covers quantitative metrics as well as other evaluation methods. It includes requirements on the implementation of the described metrics, and further requirements on the technical resources involved in the evaluation process.',
-        referencedBy: ['prEN18229-2'],
+        referencedBy: ['prEN18229-4'],
         tag: 'Parallel development',
         substackLinks: [],
         stage: 20
@@ -244,7 +244,7 @@ const normativeReferences = [
         id: 'EN-18281',
         code: 'prEN 18281:—',
         title: 'Artificial Intelligence — Evaluation methods for accurate computer vision systems',
-        referencedBy: ['prEN18229-2'],
+        referencedBy: ['prEN18229-4'],
         scope: 'This document specifies the evaluation of computer vision systems, in the sense of measuring the quality of a system’s results to assess its functional suitability. It provides a definition of evaluation methods for those systems, together with guidance on how to select, implement and interpret those evaluation methods. This document covers quantitative metrics as well as other evaluation methods. It includes requirements on the implementation of the described metrics, and further requirements on the technical resources involved in the evaluation process.',
         tag: 'CEN-CENELEC only',
         substackLinks: [{ label: 'Analysis', url: 'https://open.substack.com/pub/adamleonsmith/p/pren-18281-europes-new-standard-for?r=5t4jd8&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true' }],
@@ -256,7 +256,6 @@ const normativeReferences = [
 const internalReferences = [
     { source: 'prEN18282', target: 'prEN18286' },
     { source: 'prEN18228', target: 'prEN18229-1' },
-      { source: 'prEN18229-1', target: 'prEN18229' },
       { source: 'prEN18229-1', target: 'prEN18286' },
 ];
 
