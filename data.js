@@ -110,17 +110,33 @@ const standards = [
     {
         id: 'prEN18229-2',
         code: 'prEN 18229-2',
-        title: 'AI trustworthiness framework – Part 2: Accuracy and robustness',
+        title: 'AI trustworthiness framework – Part 2: Transparency',
         stage: 20,
-        scope: 'This document provides terminology, concepts, requirements, and guidance for the accuracy and robustness of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
+        scope: 'This document provides terminology, concepts, requirements, and guidance for the transparency AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
         substackLinks: []
     },
     {
         id: 'prEN18229-3',
         code: 'prEN 18229-3',
-        title: 'AI trustworthiness framework – Part 3: Transparency and human oversight',
+        title: 'AI trustworthiness framework – Part 3: Human oversight',
         stage: 20,
-        scope: 'This document provides terminology, concepts, requirements, and guidance for transparency and human oversight of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
+        scope: 'This document provides terminology, concepts, requirements, and guidance for human oversight of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
+        substackLinks: []
+    },
+       {
+        id: 'prEN18229-4',
+        code: 'prEN 18229-4',
+        title: 'AI trustworthiness framework – Part 4: Accuracy',
+        stage: 20,
+        scope: 'This document provides terminology, concepts, requirements, and guidance for accuracy of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
+        substackLinks: []
+    },
+       {
+        id: 'prEN18229-5',
+        code: 'prEN 18229-5',
+        title: 'AI trustworthiness framework – Part 5: Robustness',
+        stage: 20,
+        scope: 'This document provides terminology, concepts, requirements, and guidance for robustness of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
         substackLinks: []
     },
     {
@@ -246,6 +262,12 @@ const internalReferences = [
 
 // Changelog entries (newest first)
 const changelog = [
+      {
+        date: '2026-06-25',
+        standard: 'EN 18229',
+        type: 'Scope split',
+        description: 'Split of 18229 into five parts'
+    },
     {
         date: '2026-06-12',
         standard: 'EN 18286',
