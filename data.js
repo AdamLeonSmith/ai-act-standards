@@ -205,7 +205,7 @@ const normativeReferences = [
         id: 'ISO-IEC-4213',
         code: 'ISO/IEC DIS 4213:— (2nd edition)',
         title: 'Artificial intelligence — Performance measurement for AI classification, regression, clustering and recommendation tasks',
-        referencedBy: ['prEN18229-4'],
+        referencedBy: ['prEN18229-4', 'ISO-IEC-23282'],
         tag: 'ISO/IEC only',
         scope: 'This document specifies methodologies for measuring the performance of AI models for classification, regression, clustering and recommendation tasks.',
         substackLinks: [],
