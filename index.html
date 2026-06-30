@@ -425,6 +425,17 @@
             transition: all 0.3s ease;
         }
 
+        /* Focus mode: when hovering an entity, fade out everything not connected to it */
+        .mapping-wrapper.focus-mode .article-card:not(.highlighted),
+        .mapping-wrapper.focus-mode .standard-card:not(.highlighted),
+        .mapping-wrapper.focus-mode .normref-card:not(.highlighted) {
+            opacity: 0.2;
+        }
+
+        .mapping-wrapper.focus-mode .connection-line:not(.highlighted) {
+            opacity: 0.05;
+        }
+
         .connection-line.highlighted {
             stroke: var(--accent-blue);
             stroke-width: 3;
@@ -1582,6 +1593,15 @@
         }
 
         function highlightConnections(id, type) {
+            // Enable focus mode so unconnected entities fade out
+            const wrapper = document.querySelector('.mapping-wrapper');
+            if (wrapper) wrapper.classList.add('focus-mode');
+
+            // Always highlight the hovered card itself
+            const selfPrefix = type === 'article' ? 'article' : type === 'standard' ? 'standard' : 'normref';
+            const selfCard = document.getElementById(`${selfPrefix}-${id}`);
+            if (selfCard) selfCard.classList.add('highlighted');
+
             const lines = document.querySelectorAll('.connection-line');
             lines.forEach(line => {
                 let isRelevant = false;
@@ -1619,6 +1639,8 @@
         }
 
         function clearHighlights() {
+            const wrapper = document.querySelector('.mapping-wrapper');
+            if (wrapper) wrapper.classList.remove('focus-mode');
             document.querySelectorAll('.connection-line').forEach(line => {
                 line.classList.remove('highlighted');
             });

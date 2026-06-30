@@ -1,7 +1,7 @@
 // Configuration: Define which articles map to which standards
 const mappings = [
     { article: 'art9', standards: ['prEN18228'] },
-    { article: 'art10', standards: ['prEN18284'] },
+    { article: 'art10', standards: ['prEN18284', 'prEN18283'] },
     { article: 'art11', standards: ['prEN18286','prEN18229-1'] },
     { article: 'art12', standards: ['prEN18229-1'] },
     { article: 'art13', standards: ['prEN18229-2'] },
@@ -147,6 +147,15 @@ const standards = [
         scope: 'This document addresses organizational and technical solutions aimed at ensuring the cybersecurity of high-risk AI systems over the lifecycle, appropriate to the relevant circumstances and the risks. The technical solutions to address AI specific vulnerabilities include, where appropriate, measures to prevent, detect, respond to, resolve and control for attacks trying to manipulate the training dataset (data poisoning), or pre-trained components used in training (model poisoning), inputs designed to cause the model to make a mistake (adversarial examples or model evasion), confidentiality attacks or model flaws. This document provides objective criteria to enable decisions on whether a given technical or organizational solution adequately achieves a given vulnerability-related goal.',
         substackLinks: [{ label: 'Analysis', url: 'https://open.substack.com/pub/adamleonsmith/p/pren-18282-heads-to-enquiry-cybersecurity' }],
     },
+     {
+        id: 'prEN18283',
+        code: 'prEN 18283:—',
+        title: 'Concepts, measures and requirements for managing bias in AI systems',
+        referencedBy: ['prEN18284'],
+        stage: 20,
+        scope: 'This document defines concepts, measures and requirements for assessment and treatment of bias in AI systems. This includes bias unwanted by the AI Provider and AI Deployer according to their specification of the AI system, in the context of the AI Act. This encompasses consideration of data bias including any data used to build or assess the AI system, but also system or model bias that can result from algorithmic factors, such as algorithm design choices.',
+        substackLinks: []
+    },
     {
         id: 'prEN18286',
         code: 'EN 18286',
@@ -162,25 +171,7 @@ const standards = [
 
 // Normative references: which standards reference which external/internal documents
 const normativeReferences = [
-    {
-        id: 'ISO-IEC-TS-12791',
-        code: 'EN ISO/IEC TS 12791:2024',
-        title: 'Information technology — Artificial intelligence — Treatment of unwanted bias in classification and regression machine learning tasks',
-        referencedBy: ['prEN18284'],
-        tag: 'Parallel development',
-        scope: 'This document describes how to address unwanted bias in AI systems that use machine learning to conduct classification and regression tasks. This document provides mitigation techniques that can be applied throughout the AI system life cycle in order to treat unwanted bias. This document is applicable to all types and sizes of organization.',
-        substackLinks: [],
-        stage: 60
-    },
-    {
-        id: 'EN-18283',
-        code: 'prEN 18283:—',
-        title: 'Concepts, measures and requirements for managing bias in AI systems',
-        referencedBy: ['prEN18284'],
-        stage: 20,
-        scope: 'This document defines concepts, measures and requirements for assessment and treatment of bias in AI systems. This includes bias unwanted by the AI Provider and AI Deployer according to their specification of the AI system, in the context of the AI Act. This encompasses consideration of data bias including any data used to build or assess the AI system, but also system or model bias that can result from algorithmic factors, such as algorithm design choices.',
-        substackLinks: []
-    },
+    
     {
         id: 'ISO-IEC-24970',
         code: 'FprEN ISO/IEC FDIS 24970',
@@ -190,16 +181,6 @@ const normativeReferences = [
         scope: 'This document describes common capabilities, requirements and a supporting information model for logging of events in AI systems. This document is designed to be used with a risk management system.',
         substackLinks: [{label:'Analysis', url:'https://open.substack.com/pub/adamleonsmith/p/two-standards-one-architecture-fpren'}],
         stage: 50
-    },
-    {
-        id: 'ISO-IEC-12792',
-        code: 'EN ISO/IEC 12792:2025',
-        title: 'Information technology — Artificial intelligence (AI) — Transparency taxonomy of AI systems',
-        referencedBy: ['prEN18229-2'],
-        isInternal: false,
-        scope: 'This document specifies a taxonomy of information elements to assist AI stakeholders with identifying and addressing the needs for transparency of AI systems. The document describes the semantics of the information elements and their relevance to the various objectives of different stakeholders. This document is applicable to any kind of organization and application involving an AI system.',
-        substackLinks: [{ label: 'Analysis', url: 'https://adamleonsmith.substack.com/p/using-en-isoiec-12792-to-help-with' }],
-        stage: 60
     },
         {
         id: 'ISO-IEC-4213',
@@ -259,10 +240,30 @@ const internalReferences = [
    
     { source: 'prEN18228', target: 'prEN18229-1' },
       { source: 'prEN18229-1', target: 'prEN18286' },
+      { source: 'prEN18229-2', target: 'prEN18286' },
+      { source: 'prEN18229-2', target: 'prEN18228' },
+      { source: 'prEN18229-2', target: 'prEN18229-1' },
+      { source: 'prEN18229-2', target: 'prEN18229-3' },
+      { source: 'prEN18229-2', target: 'prEN18229-4' },
+      { source: 'prEN18229-2', target: 'prEN18229-5' },
+      { source: 'prEN18229-2', target: 'prEN18282' },
+      { source: 'prEN18229-2', target: 'prEN18283' },
+      { source: 'prEN18229-2', target: 'prEN18284' },
+      { source: 'prEN18229-4', target: 'prEN18286' },
+      { source: 'prEN18229-4', target: 'prEN18228' },
+      { source: 'prEN18229-4', target: 'prEN18283' },
+      { source: 'prEN18229-4', target: 'prEN18229-2' },
+
 ];
 
 // Changelog entries (newest first)
 const changelog = [
+    {
+date: '2026-06-30',
+standard: 'prEN 18283',
+type: 'Normative references',
+description: 'Removed outdated ref to 12791.'
+},
 {
 date: '2026-06-30',
 standard: 'prEN ISO/IEC 23282',
