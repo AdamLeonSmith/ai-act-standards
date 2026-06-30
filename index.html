@@ -465,6 +465,21 @@
             opacity: 1;
         }
 
+        /* On hover, highlighted lines flow from source to target so direction is visible */
+        .connection-line.highlighted {
+            stroke-dasharray: 9 7;
+            animation: flow 0.6s linear infinite;
+        }
+
+        @keyframes flow {
+            from {
+                stroke-dashoffset: 0;
+            }
+            to {
+                stroke-dashoffset: 16;
+            }
+        }
+
 
         .normref-card {
             background: var(--card-bg);
