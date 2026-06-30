@@ -213,13 +213,13 @@ const normativeReferences = [
     },
     {
         id: 'ISO-IEC-23282',
-        code: 'prEN ISO/IEC CD 23282:—',
+        code: 'prEN ISO/IEC DIS 23282:—',
         title: 'Artificial Intelligence — Evaluation methods for accurate natural language processing systems',
         scope: 'This document specifies the evaluation of natural language processing systems, in the sense of measuring the quality of a system’s results to assess its functional suitability. It provides a definition of evaluation methods for those systems, together with guidance on how to select, implement and interpret those evaluation methods. This document covers quantitative metrics as well as other evaluation methods. It includes requirements on the implementation of the described metrics, and further requirements on the technical resources involved in the evaluation process.',
         referencedBy: ['prEN18229-4'],
         tag: 'Parallel development',
         substackLinks: [],
-        stage: 20
+        stage: 40
     },
     {
         id: 'ISO-IEC-24029-2',
@@ -255,13 +255,25 @@ const normativeReferences = [
 
 // Internal normative references between standards in the middle column
 const internalReferences = [
-    { source: 'prEN18282', target: 'prEN18286' },
+   
     { source: 'prEN18228', target: 'prEN18229-1' },
       { source: 'prEN18229-1', target: 'prEN18286' },
 ];
 
 // Changelog entries (newest first)
 const changelog = [
+{
+date: '2026-06-30',
+standard: 'prEN ISO/IEC 23282',
+type: 'Stage progression',
+description: 'Project moves to DIS/Enquiry'
+},
+          {
+        date: '2026-06-25',
+        standard: 'EN 18229',
+        type: 'Scope split',
+        description: 'Split of 18229 into five parts'
+    },
       {
         date: '2026-06-25',
         standard: 'EN 18229',
