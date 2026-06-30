@@ -4,9 +4,9 @@ const mappings = [
     { article: 'art10', standards: ['prEN18284'] },
     { article: 'art11', standards: ['prEN18286','prEN18229-1'] },
     { article: 'art12', standards: ['prEN18229-1'] },
-    { article: 'art13', standards: ['prEN18229-3'] },
+    { article: 'art13', standards: ['prEN18229-2'] },
     { article: 'art14', standards: ['prEN18229-3'] },
-    { article: 'art15', standards: ['prEN18229-2', 'prEN18282'] },
+    { article: 'art15', standards: ['prEN18229-4', 'prEN18229-5', 'prEN18282'] },
     { article: 'art17', standards: ['prEN18286'] }
 ];
 
