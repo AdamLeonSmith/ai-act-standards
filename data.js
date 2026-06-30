@@ -205,7 +205,7 @@ const normativeReferences = [
         id: 'ISO-IEC-4213',
         code: 'ISO/IEC DIS 4213:— (2nd edition)',
         title: 'Artificial intelligence — Performance measurement for AI classification, regression, clustering and recommendation tasks',
-        referencedBy: ['prEN18229-4', 'ISO-IEC-23282'],
+        referencedBy: ['prEN18229-4'],
         tag: 'ISO/IEC only',
         scope: 'This document specifies methodologies for measuring the performance of AI models for classification, regression, clustering and recommendation tasks.',
         substackLinks: [],
@@ -218,7 +218,7 @@ const normativeReferences = [
         scope: 'This document specifies the evaluation of natural language processing systems, in the sense of measuring the quality of a system’s results to assess its functional suitability. It provides a definition of evaluation methods for those systems, together with guidance on how to select, implement and interpret those evaluation methods. This document covers quantitative metrics as well as other evaluation methods. It includes requirements on the implementation of the described metrics, and further requirements on the technical resources involved in the evaluation process.',
         referencedBy: ['prEN18229-4'],
         tag: 'Parallel development',
-        substackLinks: [],
+        substackLinks: [{label: 'Analysis','https://adamleonsmith.substack.com/p/pren-isoiec-dis-23282-how-to-measure?r=5t4jd8'}],
         stage: 40
     },
     {
