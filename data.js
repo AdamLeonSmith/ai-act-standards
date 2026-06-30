@@ -221,6 +221,17 @@ const normativeReferences = [
         substackLinks: [{label: 'Analysis','https://adamleonsmith.substack.com/p/pren-isoiec-dis-23282-how-to-measure?r=5t4jd8'}],
         stage: 40
     },
+
+    {
+        id: 'EN-18281',
+        code: 'prEN 18281:—',
+        title: 'Artificial Intelligence — Evaluation methods for accurate computer vision systems',
+        referencedBy: ['prEN18229-4'],
+        scope: 'This document specifies the evaluation of computer vision systems, in the sense of measuring the quality of a system’s results to assess its functional suitability. It provides a definition of evaluation methods for those systems, together with guidance on how to select, implement and interpret those evaluation methods. This document covers quantitative metrics as well as other evaluation methods. It includes requirements on the implementation of the described metrics, and further requirements on the technical resources involved in the evaluation process.',
+        tag: 'CEN-CENELEC only',
+        substackLinks: [{ label: 'Analysis', url: 'https://open.substack.com/pub/adamleonsmith/p/pren-18281-europes-new-standard-for?r=5t4jd8&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true' }],
+        stage: 40
+    },
     {
         id: 'ISO-IEC-24029-2',
         code: 'EN ISO/IEC 24029-2:2023',
@@ -241,16 +252,6 @@ const normativeReferences = [
         stage: 40
     },
 
-    {
-        id: 'EN-18281',
-        code: 'prEN 18281:—',
-        title: 'Artificial Intelligence — Evaluation methods for accurate computer vision systems',
-        referencedBy: ['prEN18229-4'],
-        scope: 'This document specifies the evaluation of computer vision systems, in the sense of measuring the quality of a system’s results to assess its functional suitability. It provides a definition of evaluation methods for those systems, together with guidance on how to select, implement and interpret those evaluation methods. This document covers quantitative metrics as well as other evaluation methods. It includes requirements on the implementation of the described metrics, and further requirements on the technical resources involved in the evaluation process.',
-        tag: 'CEN-CENELEC only',
-        substackLinks: [{ label: 'Analysis', url: 'https://open.substack.com/pub/adamleonsmith/p/pren-18281-europes-new-standard-for?r=5t4jd8&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true' }],
-        stage: 40
-    },
 ];
 
 // Internal normative references between standards in the middle column
