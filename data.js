@@ -119,7 +119,7 @@ const standards = [
         id: 'prEN18229-3',
         code: 'prEN 18229-3',
         title: 'AI trustworthiness framework – Part 3: Human oversight',
-        stage: 20,
+        stage: 40,
         scope: 'This document provides terminology, concepts, requirements, and guidance for human oversight of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
         substackLinks: []
     },
@@ -229,7 +229,7 @@ const normativeReferences = [
         referencedBy: ['prEN18229-5'],
         scope: 'This document provides methodology for the use of formal methods to assess robustness properties of neural networks. The document focuses on how to select, apply and manage formal methods to prove robustness properties.',
         tag: 'ISO/IEC only',
-        substackLinks: [],
+        substackLinks: [{ label: 'Analysis', url: 'https://adamleonsmith.substack.com/p/pren-18229-3-reaches-enquiry'}],
         stage: 40
     },
 
@@ -258,6 +258,12 @@ const internalReferences = [
 
 // Changelog entries (newest first)
 const changelog = [
+        {
+date: '2026-07-30',
+standard: 'prEN 18229-3',
+type: 'Stage progression',
+description: 'Standard reaches Enquiry stage.'
+},
     {
 date: '2026-06-30',
 standard: 'prEN 18283',
