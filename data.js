@@ -121,7 +121,7 @@ const standards = [
         title: 'AI trustworthiness framework – Part 3: Human oversight',
         stage: 40,
         scope: 'This document provides terminology, concepts, requirements, and guidance for human oversight of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
-        substackLinks: []
+        substackLinks: [{label:'Analysis', url:'https://adamleonsmith.substack.com/p/pren-18229-3-reaches-enquiry?r=5t4jd8'}]
     },
        {
         id: 'prEN18229-4',
@@ -189,7 +189,7 @@ const normativeReferences = [
         referencedBy: ['prEN18229-4'],
         tag: 'ISO/IEC only',
         scope: 'This document specifies methodologies for measuring the performance of AI models for classification, regression, clustering and recommendation tasks.',
-        substackLinks: [],
+        substackLinks: [{label:'Analysis', url:'https://adamleonsmith.substack.com/p/isoiec-4213-2nd-edition-reaches-draft'}],
         stage: 40
     },
     {
