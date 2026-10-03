@@ -2,7 +2,7 @@
 const mappings = [
     { article: 'art9', standards: ['prEN18228'] },
     { article: 'art10', standards: ['prEN18284', 'prEN18283'] },
-    { article: 'art11', standards: ['prEN18286','prEN18229-1'] },
+    { article: 'art11', standards: ['prEN18286','prEN18229-2'] },
     { article: 'art12', standards: ['prEN18229-1'] },
     { article: 'art13', standards: ['prEN18229-2'] },
     { article: 'art14', standards: ['prEN18229-3'] },
@@ -95,7 +95,7 @@ const standards = [
         id: 'prEN18284',
         code: 'prEN 18284',
         title: 'Quality and governance of datasets in AI',
-        stage: 10,
+        stage: 20,
         scope: 'This document provides guidance and requirements for the creation and management of datasets in the context of AI, including design choices, data collection and preparation. It defines metrics and methodology to assess dataset quality characteristics such as representativeness, relevance, completeness and correctness. This encompasses consideration of any data, including training data, validation data and test data, and to be used in conjunction with any AI technology.',
         substackLinks: []
     },
@@ -144,7 +144,7 @@ const standards = [
         code: 'prEN 18282',
         title: 'Cybersecurity specifications for AI systems',
         stage: 40,
-        scope: 'This document addresses organizational and technical solutions aimed at ensuring the cybersecurity of high-risk AI systems over the lifecycle, appropriate to the relevant circumstances and the risks. The technical solutions to address AI specific vulnerabilities include, where appropriate, measures to prevent, detect, respond to, resolve and control for attacks trying to manipulate the training dataset (data poisoning), or pre-trained components used in training (model poisoning), inputs designed to cause the model to make a mistake (adversarial examples or model evasion), confidentiality attacks or model flaws. This document provides objective criteria to enable decisions on whether a given technical or organizational solution adequately achieves a given vulnerability-related goal.',
+        scope: 'This document addresses organizational and technical solutions aimed at ensuring the cybersecurity of AI systems over their life cycle, appropriate to the relevant circumstances and the risks. The document addresses cybersecurity specifically for AI systems and not conventional cybersecurity. This document is intended to support organizations in meeting applicable product regulatory requirements. It is primarily intended for organizations placing on the market or putting into service high-risk AI systems and is not specific to any particular sector.',
         substackLinks: [{ label: 'Analysis', url: 'https://open.substack.com/pub/adamleonsmith/p/pren-18282-heads-to-enquiry-cybersecurity' }],
     },
      {
@@ -152,7 +152,7 @@ const standards = [
         code: 'prEN 18283:—',
         title: 'Concepts, measures and requirements for managing bias in AI systems',
         referencedBy: ['prEN18284'],
-        stage: 20,
+        stage: 40,
         scope: 'This document defines concepts, measures and requirements for assessment and treatment of bias in AI systems. This includes bias unwanted by the AI Provider and AI Deployer according to their specification of the AI system, in the context of the AI Act. This encompasses consideration of data bias including any data used to build or assess the AI system, but also system or model bias that can result from algorithmic factors, such as algorithm design choices.',
         substackLinks: []
     },
@@ -239,7 +239,7 @@ const normativeReferences = [
 const internalReferences = [
    
     { source: 'prEN18228', target: 'prEN18229-1' },
-      { source: 'prEN18229-1', target: 'prEN18286' },
+      { source: 'prEN18229-1', target: 'prEN18228' },
       { source: 'prEN18229-2', target: 'prEN18286' },
       { source: 'prEN18229-2', target: 'prEN18228' },
       { source: 'prEN18229-2', target: 'prEN18229-1' },
@@ -258,6 +258,24 @@ const internalReferences = [
 
 // Changelog entries (newest first)
 const changelog = [
+        {
+date: '2026-10-02',
+standard: 'prEN 18283',
+type: 'Stage progression',
+description: 'Standard reaches Enquiry stage.'
+},
+{
+date: '2026-10-02',
+standard: 'prEN 18282',
+type: 'Scope change',
+description: 'Scope updated.'
+},
+        {
+date: '2026-10-02',
+standard: 'prEN 18284',
+type: 'Stage progression',
+description: 'Standard reaches Working Draft stage.'
+},
         {
 date: '2026-07-30',
 standard: 'prEN 18229-3',
