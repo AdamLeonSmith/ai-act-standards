@@ -381,6 +381,28 @@
             transform: translateX(-50%) translateY(0);
         }
 
+        .citation-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #92400e;
+            padding: 0.15rem 0.5rem;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--accent-gold);
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-left: auto;
+        }
+
+        .citation-badge:hover {
+            background: rgba(212, 175, 55, 0.35);
+            transform: translateY(-1px);
+        }
+
         .substack-links {
             display: flex;
             flex-wrap: wrap;
@@ -1417,10 +1439,17 @@
                     substackLinksHtml += '</div>';
                 }
 
+                const citationBadgeHtml = (standard.cited && standard.citationUrl) ? `
+                    <a href="${standard.citationUrl}" target="_blank" rel="noopener" class="citation-badge" onclick="event.stopPropagation();" title="Cited in the Official Journal of the EU">
+                        <i class="fa-solid fa-scale-balanced"></i> Cited in OJEU
+                    </a>
+                ` : '';
+
                 card.innerHTML = `
                     <div class="standard-code">
                         <div class="stage-indicator" style="background: ${getStageColor(standard.stage)};"></div>
                         ${standard.code}
+                        ${citationBadgeHtml}
                     </div>
                     <div class="standard-title">${standard.title}</div>
                     ${substackLinksHtml}
@@ -1688,6 +1717,7 @@
         // Calculate and update dashboard stats
         function updateDashboard() {
             const stageCounts = { 10: 0, 20: 0, 40: 0, 50: 0, 60: 0 };
+            let citedCount = 0;
 
             const allStandards = [...standards, ...normativeReferences.filter(r => r.stage !== undefined)];
 
@@ -1697,6 +1727,8 @@
                 else if (standard.stage >= 40) stageCounts[40]++;
                 else if (standard.stage >= 20) stageCounts[20]++;
                 else if (standard.stage >= 10) stageCounts[10]++;
+
+                if (standard.cited) citedCount++;
             });
 
             document.getElementById('total-standards').textContent = allStandards.length;
@@ -1705,7 +1737,7 @@
             document.getElementById('stage-40-count').textContent = stageCounts[40];
             document.getElementById('stage-50-count').textContent = stageCounts[50];
             document.getElementById('stage-60-count').textContent = stageCounts[60];
-            document.getElementById('stage-cited-count').textContent = 0;
+            document.getElementById('stage-cited-count').textContent = citedCount;
         }
 
         // FAQ accordion functionality

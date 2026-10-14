@@ -161,6 +161,8 @@ const standards = [
         code: 'EN 18286',
         title: 'Quality management system for EU AI Act regulatory purposes',
         stage: 60,
+        cited: true,
+        citationUrl: 'https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202602274',
         scope: 'This document specifies the requirements and provides guidance for the definition, implementation and maintenance of a quality management system for organizations that provide AI systems. This document is intended to support the organization in meeting applicable regulatory requirements. It is primarily intended for organizations placing on the market or putting into service high-risk AI systems and is not specific to any particular sector.',
         substackLinks: [
             { label: 'Structural analysis', url: 'https://adamleonsmith.substack.com/p/the-distinctive-structure-of-pren' },
@@ -258,6 +260,12 @@ const internalReferences = [
 
 // Changelog entries (newest first)
 const changelog = [
+            {
+date: '2026-10-14',
+standard: 'EN 18286',
+type: 'Citation',
+description: 'Standard cited in the OJEU.'
+},
         {
 date: '2026-10-02',
 standard: 'prEN 18283',
