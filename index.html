@@ -338,6 +338,12 @@
             flex-shrink: 0;
         }
 
+        .standard-formerly {
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin: -0.25rem 0 0.5rem;
+        }
+
         .standard-title {
             font-weight: 600;
             font-size: 1rem;
@@ -1452,6 +1458,7 @@
                         ${citationBadgeHtml}
                     </div>
                     <div class="standard-title">${standard.title}</div>
+                    ${standard.formerly ? `<div class="standard-formerly">Formerly ${standard.formerly}</div>` : ''}
                     ${substackLinksHtml}
                     <div class="standard-scope">${standard.scope}</div>
                 `;

@@ -1,12 +1,12 @@
 // Configuration: Define which articles map to which standards
 const mappings = [
     { article: 'art9', standards: ['prEN18228'] },
-    { article: 'art10', standards: ['prEN18284', 'prEN18283'] },
-    { article: 'art11', standards: ['prEN18286','prEN18229-2'] },
-    { article: 'art12', standards: ['prEN18229-1'] },
-    { article: 'art13', standards: ['prEN18229-2'] },
-    { article: 'art14', standards: ['prEN18229-3'] },
-    { article: 'art15', standards: ['prEN18229-4', 'prEN18229-5', 'prEN18282'] },
+    { article: 'art10', standards: ['prEN18229-1', 'prEN18229-2'] },
+    { article: 'art11', standards: ['prEN18286','prEN18229-4'] },
+    { article: 'art12', standards: ['prEN18229-3'] },
+    { article: 'art13', standards: ['prEN18229-4'] },
+    { article: 'art14', standards: ['prEN18229-5'] },
+    { article: 'art15', standards: ['prEN18229-6', 'prEN18229-7', 'prEN18229-8'] },
     { article: 'art17', standards: ['prEN18286'] }
 ];
 
@@ -92,69 +92,77 @@ const standards = [
         substackLinks: [{ label: 'Analysis', url: 'https://adamleonsmith.substack.com/p/pren-18228-heads-to-enquiry-the-product' }],
     },
     {
-        id: 'prEN18284',
-        code: 'prEN 18284',
-        title: 'Quality and governance of datasets in AI',
+        id: 'prEN18229-1',
+        code: 'prEN 18229-1',
+        formerly: 'prEN 18284',
+        title: 'AI system requirements – Part 1: Quality and governance of data sets in AI',
         stage: 20,
         scope: 'This document provides guidance and requirements for the creation and management of datasets in the context of AI, including design choices, data collection and preparation. It defines metrics and methodology to assess dataset quality characteristics such as representativeness, relevance, completeness and correctness. This encompasses consideration of any data, including training data, validation data and test data, and to be used in conjunction with any AI technology.',
         substackLinks: []
     },
     {
-        id: 'prEN18229-1',
-        code: 'prEN 18229-1',
-        title: 'AI trustworthiness framework – Part 1: Logging',
-        stage: 40,
-        scope: 'This document provides terminology, concepts, requirements, and guidance for logging of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
-        substackLinks: [{label:'Analysis', url:'https://open.substack.com/pub/adamleonsmith/p/two-standards-one-architecture-fpren'}]
-    },
-    {
         id: 'prEN18229-2',
         code: 'prEN 18229-2',
-        title: 'AI trustworthiness framework – Part 2: Transparency',
-        stage: 20,
-        scope: 'This document provides terminology, concepts, requirements, and guidance for the transparency AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
+        formerly: 'prEN 18283',
+        title: 'AI system requirements – Part 2: Concepts, measures and requirements for managing bias in AI systems',
+        referencedBy: ['prEN18229-1'],
+        stage: 40,
+        scope: 'This document defines concepts, measures and requirements for assessment and treatment of bias in AI systems. This includes bias unwanted by the AI Provider and AI Deployer according to their specification of the AI system, in the context of the AI Act. This encompasses consideration of data bias including any data used to build or assess the AI system, but also system or model bias that can result from algorithmic factors, such as algorithm design choices.',
         substackLinks: []
     },
     {
         id: 'prEN18229-3',
         code: 'prEN 18229-3',
-        title: 'AI trustworthiness framework – Part 3: Human oversight',
+        formerly: 'prEN 18229-1',
+        title: 'AI system requirements – Part 3: Logging',
+        stage: 40,
+        scope: 'This document provides terminology, concepts, requirements, and guidance for logging of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
+        substackLinks: [{label:'Analysis', url:'https://open.substack.com/pub/adamleonsmith/p/two-standards-one-architecture-fpren'}]
+    },
+    {
+        id: 'prEN18229-4',
+        code: 'prEN 18229-4',
+        formerly: 'prEN 18229-2',
+        title: 'AI system requirements – Part 4: Transparency',
+        stage: 20,
+        scope: 'This document provides terminology, concepts, requirements, and guidance for the transparency AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
+        substackLinks: []
+    },
+    {
+        id: 'prEN18229-5',
+        code: 'prEN 18229-5',
+        formerly: 'prEN 18229-3',
+        title: 'AI system requirements – Part 5: Human oversight',
         stage: 40,
         scope: 'This document provides terminology, concepts, requirements, and guidance for human oversight of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
         substackLinks: [{label:'Analysis', url:'https://adamleonsmith.substack.com/p/pren-18229-3-reaches-enquiry?r=5t4jd8'}]
     },
-       {
-        id: 'prEN18229-4',
-        code: 'prEN 18229-4',
-        title: 'AI trustworthiness framework – Part 4: Accuracy',
+    {
+        id: 'prEN18229-6',
+        code: 'prEN 18229-6',
+        formerly: 'prEN 18229-4',
+        title: 'AI system requirements – Part 6: Accuracy',
         stage: 20,
         scope: 'This document provides terminology, concepts, requirements, and guidance for accuracy of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
         substackLinks: []
     },
-       {
-        id: 'prEN18229-5',
-        code: 'prEN 18229-5',
-        title: 'AI trustworthiness framework – Part 5: Robustness',
+    {
+        id: 'prEN18229-7',
+        code: 'prEN 18229-7',
+        formerly: 'prEN 18229-5',
+        title: 'AI system requirements – Part 7: Robustness',
         stage: 20,
         scope: 'This document provides terminology, concepts, requirements, and guidance for robustness of AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
         substackLinks: []
     },
     {
-        id: 'prEN18282',
-        code: 'prEN 18282',
-        title: 'Cybersecurity specifications for AI systems',
+        id: 'prEN18229-8',
+        code: 'prEN 18229-8',
+        formerly: 'prEN 18282',
+        title: 'AI system requirements – Part 8: Cybersecurity specifications for AI systems',
         stage: 40,
         scope: 'This document addresses organizational and technical solutions aimed at ensuring the cybersecurity of AI systems over their life cycle, appropriate to the relevant circumstances and the risks. The document addresses cybersecurity specifically for AI systems and not conventional cybersecurity. This document is intended to support organizations in meeting applicable product regulatory requirements. It is primarily intended for organizations placing on the market or putting into service high-risk AI systems and is not specific to any particular sector.',
         substackLinks: [{ label: 'Analysis', url: 'https://open.substack.com/pub/adamleonsmith/p/pren-18282-heads-to-enquiry-cybersecurity' }],
-    },
-     {
-        id: 'prEN18283',
-        code: 'prEN 18283:—',
-        title: 'Concepts, measures and requirements for managing bias in AI systems',
-        referencedBy: ['prEN18284'],
-        stage: 40,
-        scope: 'This document defines concepts, measures and requirements for assessment and treatment of bias in AI systems. This includes bias unwanted by the AI Provider and AI Deployer according to their specification of the AI system, in the context of the AI Act. This encompasses consideration of data bias including any data used to build or assess the AI system, but also system or model bias that can result from algorithmic factors, such as algorithm design choices.',
-        substackLinks: []
     },
     {
         id: 'prEN18286',
@@ -178,7 +186,7 @@ const normativeReferences = [
         id: 'ISO-IEC-24970',
         code: 'FprEN ISO/IEC FDIS 24970',
         title: 'Artificial intelligence — AI system logging',
-        referencedBy: ['prEN18229-1'],
+        referencedBy: ['prEN18229-3'],
         tag: 'Parallel development',
         scope: 'This document describes common capabilities, requirements and a supporting information model for logging of events in AI systems. This document is designed to be used with a risk management system.',
         substackLinks: [{label:'Analysis', url:'https://open.substack.com/pub/adamleonsmith/p/two-standards-one-architecture-fpren'}],
@@ -188,7 +196,7 @@ const normativeReferences = [
         id: 'ISO-IEC-4213',
         code: 'ISO/IEC DIS 4213:— (2nd edition)',
         title: 'Artificial intelligence — Performance measurement for AI classification, regression, clustering and recommendation tasks',
-        referencedBy: ['prEN18229-4'],
+        referencedBy: ['prEN18229-6'],
         tag: 'ISO/IEC only',
         scope: 'This document specifies methodologies for measuring the performance of AI models for classification, regression, clustering and recommendation tasks.',
         substackLinks: [{label:'Analysis', url:'https://adamleonsmith.substack.com/p/isoiec-4213-2nd-edition-reaches-draft'}],
@@ -199,7 +207,7 @@ const normativeReferences = [
         code: 'prEN ISO/IEC DIS 23282:—',
         title: 'Artificial Intelligence — Evaluation methods for accurate natural language processing systems',
         scope: 'This document specifies the evaluation of natural language processing systems, in the sense of measuring the quality of a system’s results to assess its functional suitability. It provides a definition of evaluation methods for those systems, together with guidance on how to select, implement and interpret those evaluation methods. This document covers quantitative metrics as well as other evaluation methods. It includes requirements on the implementation of the described metrics, and further requirements on the technical resources involved in the evaluation process.',
-        referencedBy: ['prEN18229-4'],
+        referencedBy: ['prEN18229-6'],
         tag: 'Parallel development',
         substackLinks: [{label: 'Analysis', url:'https://adamleonsmith.substack.com/p/pren-isoiec-dis-23282-how-to-measure?r=5t4jd8'}],
         stage: 40
@@ -209,7 +217,7 @@ const normativeReferences = [
         id: 'EN-18281',
         code: 'prEN 18281:—',
         title: 'Artificial Intelligence — Evaluation methods for accurate computer vision systems',
-        referencedBy: ['prEN18229-4'],
+        referencedBy: ['prEN18229-6'],
         scope: 'This document specifies the evaluation of computer vision systems, in the sense of measuring the quality of a system’s results to assess its functional suitability. It provides a definition of evaluation methods for those systems, together with guidance on how to select, implement and interpret those evaluation methods. This document covers quantitative metrics as well as other evaluation methods. It includes requirements on the implementation of the described metrics, and further requirements on the technical resources involved in the evaluation process.',
         tag: 'CEN-CENELEC only',
         substackLinks: [{ label: 'Analysis', url: 'https://open.substack.com/pub/adamleonsmith/p/pren-18281-europes-new-standard-for?r=5t4jd8&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true' }],
@@ -219,7 +227,7 @@ const normativeReferences = [
         id: 'ISO-IEC-24029-2',
         code: 'EN ISO/IEC 24029-2:2023',
         title: 'Artificial intelligence (AI) — Assessment of the robustness of neural networks — Part 2: Methodology for the use of formal methods',
-        referencedBy: ['prEN18229-5'],
+        referencedBy: ['prEN18229-7'],
         tag: 'Parallel development',
         substackLinks: [],
         stage: 60
@@ -228,7 +236,7 @@ const normativeReferences = [
         id: 'ISO-IEC-24029-3',
         code: 'ISO/IEC DIS 24029-3:—',
         title: 'Artificial intelligence (AI) — Assessment of the robustness of neural networks — Part 3: Methodology for the use of statistical methods',
-        referencedBy: ['prEN18229-5'],
+        referencedBy: ['prEN18229-7'],
         scope: 'This document provides methodology for the use of formal methods to assess robustness properties of neural networks. The document focuses on how to select, apply and manage formal methods to prove robustness properties.',
         tag: 'ISO/IEC only',
         substackLinks: [{ label: 'Analysis', url: 'https://adamleonsmith.substack.com/p/pren-18229-3-reaches-enquiry'}],
@@ -240,26 +248,32 @@ const normativeReferences = [
 // Internal normative references between standards in the middle column
 const internalReferences = [
    
-    { source: 'prEN18228', target: 'prEN18229-1' },
-      { source: 'prEN18229-1', target: 'prEN18228' },
-      { source: 'prEN18229-2', target: 'prEN18286' },
-      { source: 'prEN18229-2', target: 'prEN18228' },
-      { source: 'prEN18229-2', target: 'prEN18229-1' },
-      { source: 'prEN18229-2', target: 'prEN18229-3' },
-      { source: 'prEN18229-2', target: 'prEN18229-4' },
-      { source: 'prEN18229-2', target: 'prEN18229-5' },
-      { source: 'prEN18229-2', target: 'prEN18282' },
-      { source: 'prEN18229-2', target: 'prEN18283' },
-      { source: 'prEN18229-2', target: 'prEN18284' },
+    { source: 'prEN18228', target: 'prEN18229-3' },
+      { source: 'prEN18229-3', target: 'prEN18228' },
       { source: 'prEN18229-4', target: 'prEN18286' },
       { source: 'prEN18229-4', target: 'prEN18228' },
-      { source: 'prEN18229-4', target: 'prEN18283' },
+      { source: 'prEN18229-4', target: 'prEN18229-3' },
+      { source: 'prEN18229-4', target: 'prEN18229-5' },
+      { source: 'prEN18229-4', target: 'prEN18229-6' },
+      { source: 'prEN18229-4', target: 'prEN18229-7' },
+      { source: 'prEN18229-4', target: 'prEN18229-8' },
       { source: 'prEN18229-4', target: 'prEN18229-2' },
+      { source: 'prEN18229-4', target: 'prEN18229-1' },
+      { source: 'prEN18229-6', target: 'prEN18286' },
+      { source: 'prEN18229-6', target: 'prEN18228' },
+      { source: 'prEN18229-6', target: 'prEN18229-2' },
+      { source: 'prEN18229-6', target: 'prEN18229-4' },
 
 ];
 
 // Changelog entries (newest first)
 const changelog = [
+    {
+        date: '2026-11-13',
+        standard: 'EN 18229 series',
+        type: 'Renumbering',
+        description: 'BT endorsed JTC 21 Decision 1/2026: Art 10 and Art 12–15 standards regrouped as EN 18229 "AI system requirements" Parts 1–8 (18284 → -1, 18283 → -2, 18229-1 → -3, 18229-2 → -4, 18229-3 → -5, 18229-4 → -6, 18229-5 → -7, 18282 → -8). Earlier changelog entries use the old numbers.'
+    },
             {
 date: '2026-10-14',
 standard: 'EN 18286',
