@@ -190,7 +190,7 @@ const normativeReferences = [
         tag: 'Parallel development',
         scope: 'This document describes common capabilities, requirements and a supporting information model for logging of events in AI systems. This document is designed to be used with a risk management system.',
         substackLinks: [{label:'Analysis', url:'https://open.substack.com/pub/adamleonsmith/p/two-standards-one-architecture-fpren'}],
-        stage: 50
+        stage: 60
     },
         {
         id: 'ISO-IEC-4213',
@@ -268,6 +268,12 @@ const internalReferences = [
 
 // Changelog entries (newest first)
 const changelog = [
+    {
+        date: '2026-11-15',
+        standard: 'ISO/IEC 24970',
+        type: 'Stage progression',
+        description: 'FDIS ballot approved; moved to Stage 60.'
+    },
     {
         date: '2026-11-13',
         standard: 'EN 18229 series',
