@@ -184,7 +184,7 @@ const normativeReferences = [
     
     {
         id: 'ISO-IEC-24970',
-        code: 'FprEN ISO/IEC FDIS 24970',
+        code: 'EN ISO/IEC 24970:2026',
         title: 'Artificial intelligence — AI system logging',
         referencedBy: ['prEN18229-3'],
         tag: 'Parallel development',
