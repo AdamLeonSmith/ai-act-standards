@@ -2,7 +2,7 @@
 const mappings = [
     { article: 'art9', standards: ['prEN18228'] },
     { article: 'art10', standards: ['prEN18229-1', 'prEN18229-2'] },
-    { article: 'art11', standards: ['prEN18286','prEN18229-4'] },
+    { article: 'art11', standards: ['prEN18286'] },
     { article: 'art12', standards: ['prEN18229-3'] },
     { article: 'art13', standards: ['prEN18229-4'] },
     { article: 'art14', standards: ['prEN18229-5'] },
@@ -124,7 +124,7 @@ const standards = [
         code: 'prEN 18229-4',
         formerly: 'prEN 18229-2',
         title: 'AI system requirements – Part 4: Transparency',
-        stage: 20,
+        stage: 40,
         scope: 'This document provides terminology, concepts, requirements, and guidance for the transparency AI systems. It is primarily intended for organizations placing on the market or putting into service AI systems and is not specific to any particular sector.',
         substackLinks: []
     },
@@ -247,7 +247,7 @@ const normativeReferences = [
 
 // Internal normative references between standards in the middle column
 const internalReferences = [
-   
+    { source: 'prEN18283', target: 'prEN18284' },
     { source: 'prEN18228', target: 'prEN18229-3' },
       { source: 'prEN18229-3', target: 'prEN18228' },
       { source: 'prEN18229-4', target: 'prEN18286' },
@@ -268,6 +268,13 @@ const internalReferences = [
 
 // Changelog entries (newest first)
 const changelog = [
+    {
+        date: '2026-11-19',
+        standard: 'prEN 18229-4',
+        type: 'Stage progression',
+        description: 'Enquiry ballot started'
+    },
+
     {
         date: '2026-11-15',
         standard: 'ISO/IEC 24970',
